@@ -1,0 +1,46 @@
+---
+- name: Configure eclipse ini configuration java vm location '-vm' flag
+  lineinfile:
+    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    state: present
+    owner: "{{eclipse.owner}}"
+    group: "{{eclipse.group}}"
+    backup: yes
+    regexp: "^-vm$"
+    insertbefore: "^-vmargs$"
+    line: "-vm"
+  when: eclipse.ini.vm
+
+- name: Configure eclipse ini configuration java vm location actual location
+  lineinfile:
+    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    state: present
+    owner: "{{eclipse.owner}}"
+    group: "{{eclipse.group}}"
+    regexp: "{{ eclipse.ini.vm }}"
+    insertafter: "^-vm$"
+    line: "{{ eclipse.ini.vm }}"
+  when: eclipse.ini.vm
+
+- name: remove MaxPermSize for java 1.8
+  lineinfile:
+    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    state: absent
+    regexp: "^-XX:MaxPermSize=.*$"
+  when: java_version is defined and java_version == "jdk8"
+
+#- name:  Configure eclipse ini configuration (Launcher XXMaxPermSize)
+#  lineinfile: regexp="^256m" line="{{ eclipse_launcher_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
+#  when: eclipse_ini_enabled
+#
+#- name:  Configure eclipse ini configuration (XXMaxPermSize)
+#  lineinfile: regexp="^-XX:MaxPermSize=.*" line="-XX:MaxPermSize={{ eclipse_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
+#  when: java_version is not defined or java_version != "jdk8"
+#
+#- name:  Configure eclipse ini configuration (Xms)
+#  lineinfile: regexp="^-Xms40m" line="-Xms{{ eclipse_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
+#  when: eclipse_ini_enabled
+#
+#- name:  Configure eclipse ini configuration (Xmx)
+#  lineinfile: regexp="^-Xmx512m" line="-Xmx{{ eclipse_Xmx }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
+#  when: eclipse_ini_enabled

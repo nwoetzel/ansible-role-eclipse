@@ -1,0 +1,168 @@
+---
+eclipse:
+  distros:
+    # https://de.wikipedia.org/wiki/Eclipse_(IDE)
+    callisto:
+      version: 3.2
+    europa:
+      version: 3.3
+    ganymede:
+      version: 3.5
+    helios:
+      version: 3.6
+    indigo:
+      version: 3.7
+    juno:
+      version: 4.2
+    kepler:
+      version: 4.3
+    luna:
+      version: 4.4
+      downloads:
+        java:
+          archive: "eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz"
+          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR1/eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz&r=1"
+        jee:
+          archive: "eclipse-jee-luna-SR1-linux-gtk-x86_64.tar.gz"
+          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR1/eclipse-jee-luna-SR1-linux-gtk-x86_64.tar.gz&r=1"
+    mars:
+      version: 4.5
+      downloads:
+        jee:
+          archive: "eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz"
+          url:     "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz&r=1"
+  plugins:
+    emf:
+      repositories:
+        - "http://download.eclipse.org/tools/orbit/downloads/drops/S20110515001817/repository/"
+        - "http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site"
+        - "http://eclipse-cs.sf.net/update/"
+        - "jar:file:org.eclipse.releng.tools-3.7M7.zip"
+      install_units:
+        - org.eclipse.birt.feature.group
+        - org.eclipse.mylyn.wikitext_feature.feature.group
+        - org.eclipse.acceleo.sdk.feature.group
+        - org.eclipse.m2m.atl.sdk.feature.group
+        - org.eclipse.emf.cdo.sdk.feature.group
+        - org.eclipse.emf.ecoretools.sdk.feature.group
+        - org.eclipse.emf.sdk.feature.group
+        - org.eclipse.emf.compare.sdk.feature.group
+        - org.eclipse.emf.query.sdk.feature.group
+        - org.eclipse.emf.validation.sdk.feature.group
+        - org.eclipse.jet.sdk.feature.group
+        - org.eclipse.net4j.sdk.feature.group
+        - org.eclipse.ocl.all.sdk.feature.group
+        - org.eclipse.m2m.qvt.oml.sdk.feature.group
+        - org.eclipse.uml2.sdk.feature.group
+        - org.antlr.runtime
+        - org.apache.derby
+        - org.apache.derby.source
+        - org.apache.log4j
+        - org.apache.log4j.source
+        - org.apache.commons.lang
+        - org.apache.commons.lang.source
+        - org.apache.commons.jxpath
+        - org.apache.commons.jxpath.source
+        - net.sourceforge.nattable.core
+        - net.sourceforge.nattable.core.source
+        - org.prefuse
+        - org.prefuse.source
+        - org.eclipse.releng.tools.feature.group
+        - org.eclipse.swtbot.eclipse.feature.group
+        - org.eclipse.swtbot.feature.group
+        - net.sf.eclipsecs.feature.group
+    cdt:
+      repositories:
+        - "http://download.eclipse.org/tools/cdt/releases/helios/"
+      install_units:
+        - org.eclipse.cdt.feature.group
+        - org.eclipse.cdt.sdk.feature.group
+        - org.eclipse.cdt.platform.feature.group
+        - org.eclipse.cdt.debug.ui.memory.feature.group
+        - org.eclipse.cdt.debug.edc.feature.group
+        - org.eclipse.cdt.util.feature.group
+    cmakeed:
+      repositories:
+        - "http://cmakeed.sourceforge.net/eclipse/"
+      install_units:
+        - com.cthing.cmakeed.feature.feature.group
+    openinterminal:
+      repositories:
+        - "http://eclipse-openinterminal.googlecode.com/svn/trunk/site/"
+      install_units:
+        - OpenInTerminal.feature.group
+    protobuf:
+      repositories:
+        - "http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"
+        - "http://protobuf-dt.googlecode.com/git/update-site"
+      install_units:
+        - com.google.eclipse.protobuf.feature.group
+    yedit:
+      repositories:
+        - "http://dadacoalition.org/yedit"
+      install_units:
+        - org.dadacoalition.yedit.feature.group
+    shelled:
+      repositories:
+        - "http://download.eclipse.org/technology/dltk/updates/"
+        - "https://sourceforge.net/projects/shelled/files/shelled/update/"
+      install_units:
+        - net.sourceforge.shelled.feature.group
+    webpageed:
+      repositories:
+        - "http://download.eclipse.org/technology/dltk/updates/"
+        - "https://sourceforge.net/projects/shelled/files/shelled/update/"
+      install_units:
+        - org.eclipse.jst.webpageeditor.feature.feature.group
+    pydev:
+      repositories:
+        - "http://download.eclipse.org/technology/dltk/updates/"
+        - "http://pydev.org/updates/"
+      install_units:
+        - org.python.pydev.feature.feature.group
+    m2e:
+      repositories:
+        - "http://download.eclipse.org/technology/m2e/releases/1.5/1.5.0.20140606-0033"
+      install_units:
+        - org.eclipse.m2e.feature.feature.group,org.eclipse.m2e.logback.feature.feature.group
+    subclipse:
+      repositories:
+        - http://subclipse.tigris.org/update_1.10.x
+      install_units:
+        - org.tigris.subversion.subclipse.feature.group
+        - org.tigris.subversion.clientadapter.feature.feature.group
+        - org.tigris.subversion.clientadapter.svnkit.feature.feature.group
+        - org.tigris.subversion.clientadapter.javahl.feature.feature.group
+        - org.tigris.subversion.subclipse.graph.feature.feature.group
+    egit:
+      repositories:
+        - "http://download.eclipse.org/egit/updates"
+      install_units:
+        - "org.eclipse.egit.feature.group"
+    scala:
+      repositories:
+        - "http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site"
+      install_units:
+        - org.scala-ide.play2.feature.feature.group
+        - org.scala-ide.sbt.feature.feature.group
+        - org.scala-ide.scala211.feature.feature.group
+        - org.scala-ide.sdt.feature.feature.group
+        - org.scala.tools.eclipse.search.feature.feature.group
+        - org.scalaide.worksheet.feature.feature.group
+        - org.scala-ide.sdt.scalatest.feature.feature.group
+    redmine_mylyn:
+      repositories:
+        - "jar:https://buildhive.cloudbees.com/job/ljader/job/redmine-mylyn-plugin/48/net.sf.redmine_mylyn$net.sf.redmine_mylyn.p2repository/artifact/net.sf.redmine_mylyn/net.sf.redmine_mylyn.p2repository/0.4.1-SNAPSHOT/net.sf.redmine_mylyn.p2repository-0.4.1-SNAPSHOT.zip!/"
+        # requires 'bundle org.slf4j.api [1.6.1,1.7.0)
+        - "http://download.eclipse.org/releases/indigo/"
+      install_units:
+        - net.sf.redmine_mylyn.feature.feature.group
+    symfony:
+      repositories:
+        - "http://p2.pdt-extensions.org"
+      install_units:
+        - com.dubture.composer.feature.feature.group
+        - com.dubture.symfony.feature.feature.group
+        - com.dubture.doctrine.feature.feature.group
+        - com.dubture.indexing.feature.feature.group
+        - com.dubture.twig.feature.feature.group

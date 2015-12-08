@@ -1,0 +1,23 @@
+---
+- include: eclipse.yml
+  tags: [eclipse]
+
+- name: configure eclipse.ini
+  include: eclipseini.yml
+  tags: [eclipse]
+
+- name: create links
+  include: link.yml
+  tags: [eclipse]
+
+- include: plugins.yml
+  tags: [eclipse]
+
+# after installing and installing plugins, everything will be 'handed over' to the owner of the installation
+- name: Change archive eclipse ownership
+  file:
+    path:    "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}"
+    owner:   "{{ eclipse.owner }}"
+    group:   "{{ eclipse.group }}"
+    state:   directory
+    recurse: yes

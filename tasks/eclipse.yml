@@ -1,0 +1,72 @@
+---
+- name: Check user exists
+  user: name={{eclipse.owner}} state=present
+
+- name: Create temporary directory
+  become:      true
+  become_user: "{{ eclipse.owner }}"
+  shell: mktemp -d
+  register: mktemp_dir
+  tags: eclipse_setup
+  when: eclipse.dir.tmp is not defined
+
+- name: set tempdir from vars
+  set_fact:
+    tempdir: "{{ eclipse.dir.tmp }}"
+  when: eclipse.dir.tmp is defined
+
+- name: set tempdir from mktemp
+  set_fact:
+    tempdir: "{{ mktemp_dir.stdout }}"
+  when: mktemp_dir.stdout is defined
+
+- name: Download eclipse on 'master' if we don't have it
+  connection: local
+  become: true
+  get_url: url={{ eclipse.distros[eclipse_name].downloads[eclipse_download].url }}  dest={{ eclipse.cur_dir }}/downloads/{{ eclipse.distros[eclipse_name].downloads[eclipse_download].archive }} force=no
+
+- name: Copy eclipse into place
+  copy:
+    src:   "{{ eclipse.cur_dir }}/downloads/{{ eclipse.distros[eclipse_name].downloads[eclipse_download].archive }}"
+    dest:  "{{ tempdir }}/{{ eclipse.distros[eclipse_name].downloads[eclipse_download].archive }}"
+    owner: "{{ eclipse.owner }}"
+    group: "{{ eclipse.group }}"
+    mode:  "0644"
+  register: eclipse_copy_download
+  tags: eclipse_setup
+
+- name: Create base directory
+  file:
+    dest: "{{eclipse.dir.install}}/eclipse-{{eclipse_name}}"
+    state: directory
+    owner: "{{eclipse.owner}}"
+    group: "{{eclipse.group}}"
+  become: yes
+  register: eclipse_base_dir_created
+  tags: eclipse_setup
+
+- name: install graphics libraries required
+  apt: name="{{item}}" state=present
+  with_items:
+    - libgtk-3-0
+#    - libcanberra-gtk-module # for sound?
+    - libswt-gtk-3-jni
+    - libswt-gtk-3-java
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Extract archive
+  become:      true
+  become_user: "{{ eclipse.owner }}"
+  command: "tar xzf {{ tempdir }}/{{ eclipse.distros[eclipse_name].downloads[eclipse_download].archive }} -C {{ eclipse.dir.install }}/eclipse-{{ eclipse_name }} --strip-components=1"
+  when: eclipse_copy_download.changed or eclipse_base_dir_created.changed
+
+#- name: fix permissions eclipse home
+#  file: recurse=yes owner={{ eclipse_owner }} dest={{eclipse.dir.install}}/eclipse-{{eclipse_major}}/configuration
+#  tags: eclipse_setup
+#
+- name: Cleanup temporary directory when it was created
+  file: name={{ mktemp_dir.stdout }} state=absent
+  when: mktemp_dir is defined and mktemp_dir.stdout is defined
+  tags: eclipse_setup
+
+#- debug: msg=" Start eclipse {{eclipse.dir.install}}/eclipse-{{eclipse_major}}/eclipse"
