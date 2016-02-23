@@ -47,6 +47,6 @@
     {{ (['http://download.eclipse.org/releases/' + eclipse_name] + eclipse.plugins[item].repositories) | join(',') }} \
     -installIU \
     {{ eclipse.plugins[item].install_units | join(',') }}"
-  with_items: eclipse.plugins_enabled
+  with_items: '{{ eclipse.plugins_enabled }}'
   when: eclipse.plugins[item] is defined
   ignore_errors: True
