@@ -145,6 +145,7 @@ eclipse:
         - "http://download.eclipse.org/egit/updates"
       install_units:
         - "org.eclipse.egit.feature.group"
+        - "org.eclipse.egit.mylyn.feature.group"
     scala:
       repositories:
         - "http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site"
