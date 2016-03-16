@@ -4,6 +4,7 @@
     plugin_install_command: "{{eclipse_base_dir}}/eclipse-{{eclipse_name}}/eclipse -nosplash \
       -application org.eclipse.equinox.p2.director \
       -destination {{eclipse_base_dir}}/eclipse-{{eclipse_name}}"
+  tags: [eclipse_plugins]
 
 #Pydev
 - name: Install python pexpect for adding Pydev certificat
@@ -11,6 +12,7 @@
   with_items:
     - python-pexpect
   when: ansible_distribution == 'Debian' and "'pydev' in eclipse.plugins_enabled"
+  tags: [eclipse_plugins]
 
 #todo for RehHat : sudo yum install pexpect.noarch
 
@@ -19,12 +21,14 @@
   become_user: "{{ eclipse.owner }}"
   copy: src=add_pydev_certificate.py dest={{ eclipse_dir_tmp }} mode=0777 force=yes owner="{{eclipse_owner}}" group="{{eclipse_group}}"
   when: "'pydev' in eclipse.plugins_enabled"
+  tags: [eclipse_plugins]
 
 - name: Add eclipse Pydev certificate
   become:      true
   become_user: "{{ eclipse.owner }}"
   command: python {{ eclipse_dir_tmp }}/add_pydev_certificate.py
   when: "'pydev' in eclipse.plugins_enabled"
+  tags: [eclipse_plugins]
 
 #Subclipse
 - name: Install JavaHL for subclipse
@@ -33,11 +37,13 @@
   with_items:
     - libsvn-java
   when: ansible_distribution == 'Debian' and "'subclipse' in eclipse.plugins_enabled"
+  tags: [eclipse_plugins]
 
 # all plugins
 - name: list eclipse plugins to install
   debug:
     msg: "{{ eclipse.plugins_enabled | join(',') }}"
+  tags: [eclipse_plugins]
 
 - name: Install eclipse plugins
   become:      true
@@ -50,3 +56,4 @@
   with_items: '{{ eclipse.plugins_enabled }}'
   when: eclipse.plugins[item] is defined
   ignore_errors: True
+  tags: [eclipse_plugins]

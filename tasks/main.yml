@@ -13,6 +13,8 @@
 - include: plugins.yml
   tags: [eclipse]
 
+- include: config.yml
+
 # after installing and installing plugins, everything will be 'handed over' to the owner of the installation
 - name: Change archive eclipse ownership
   file:

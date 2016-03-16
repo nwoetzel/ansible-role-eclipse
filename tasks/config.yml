@@ -1,0 +1,22 @@
+---
+- name: Configure settings/org.eclipse.ui.ide.prefs SHOW_WORKSPACE_SELECTION_DIALOG
+  lineinfile:
+    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/configuration/.settings/org.eclipse.ui.ide.prefs"
+    state: present
+    owner: "{{eclipse.owner}}"
+    group: "{{eclipse.group}}"
+    backup: no
+    regexp: "^SHOW_WORKSPACE_SELECTION_DIALOG=.*$"
+    line: "SHOW_WORKSPACE_SELECTION_DIALOG=false"
+  tags: [eclipse_config]
+
+- name: Configure settings/org.eclipse.ui.ide.prefs RECENT_WORKSPACES
+  lineinfile:
+    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/configuration/.settings/org.eclipse.ui.ide.prefs"
+    state: present
+    owner: "{{eclipse.owner}}"
+    group: "{{eclipse.group}}"
+    backup: no
+    regexp: "^RECENT_WORKSPACES=.*$"
+    line: "RECENT_WORKSPACES="
+  tags: [eclipse_config]
