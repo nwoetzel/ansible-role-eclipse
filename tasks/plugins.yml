@@ -1,54 +1,59 @@
 ---
 - name: create plugins install command
   set_fact:
-    plugin_install_command: "{{ eclipse_unpack_dir}}/eclipse -nosplash \
+    plugin_install_command: "{{ eclipse_unpack_dir }}/eclipse -nosplash \
       -application org.eclipse.equinox.p2.director \
-      -destination {{ eclipse_unpack_dir}}"
+      -destination {{ eclipse_unpack_dir}} \
+      {{ '-p2.os '   ~ eclipse_os  if eclipse_os  }} \
+      {{ '-p2.ws '   ~ eclipse_gui if eclipse_gui }} \
+      {{ '-p2.arch ' ~ ansible_architecture if ansible_architecture }}"
   tags: [eclipse_plugins]
 
 #Pydev
 - name: Install python pexpect for adding Pydev certificat
-  apt: pkg={{ item }} state=present
+  package:
+    name:  "{{ item }}"
+    state: present
   with_items:
     - python-pexpect
-  when: ansible_distribution == 'Debian' and "'pydev' in eclipse.plugins_enabled"
+  when: (ansible_distribution == 'Debian') and 
+        ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 
 #todo for RehHat : sudo yum install pexpect.noarch
 
 - name: Transfer eclipse Pydev certificate
-  copy: src=add_pydev_certificate.py dest={{ eclipse_dir_tmp }} mode=0777 force=yes owner="{{eclipse_owner}}" group="{{eclipse_group}}"
-  when: "'pydev' in eclipse.plugins_enabled"
+  copy: src=add_pydev_certificate.py dest={{ eclipse_dir_tmp }} mode=0777 force=yes
+  when: ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 
 - name: Add eclipse Pydev certificate
   command: python {{ eclipse_dir_tmp }}/add_pydev_certificate.py
-  when: "'pydev' in eclipse.plugins_enabled"
+  when: ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 
 #Subclipse
 - name: Install JavaHL for subclipse
-  apt: pkg={{ item }} state=present
+  package:
+    name:  "{{ item }}"
+    state: present
   with_items:
     - libsvn-java
-  when: ansible_distribution == 'Debian' and "'subclipse' in eclipse.plugins_enabled"
+  when: (ansible_distribution == 'Debian') and
+        ('subclipse' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 
 # all plugins
-- name: list eclipse plugins to install
-  debug:
-    msg: "{{ eclipse.plugins_enabled | join(',') }}"
-  tags: [eclipse_plugins]
-
 - name: Install eclipse plugins
-  become:      true
-  become_user: "{{ eclipse.owner }}"
-  command: "{{plugin_install_command}} \
+  command: "{{ plugin_install_command }} \
     -repository \
-    {{ (['http://download.eclipse.org/releases/' + eclipse_distro] + eclipse.plugins[item].repositories) | join(',') }} \
+    {{ (['http://download.eclipse.org/releases/' + eclipse_distro] + eclipse_defaults.plugins[item].repositories) | join(',') }} \
     -installIU \
-    {{ eclipse.plugins[item].install_units | join(',') }}"
-  with_items: '{{ eclipse.plugins_enabled }}'
-  when: eclipse.plugins[item] is defined
-  ignore_errors: True
+    {{ eclipse_defaults.plugins[item].install_units | join(',') }} \
+    -tag ansible_install_plugin_{{ item }}"
+  args:
+    creates: "{{ eclipse_unpack_dir}}/features/{{ eclipse_defaults.plugins[item].creates_feature }}*"
+  with_items: '{{ eclipse_plugins_install }}'
+  when: (eclipse_defaults.plugins[item] is defined)
+#  ignore_errors: True
   tags: [eclipse_plugins]

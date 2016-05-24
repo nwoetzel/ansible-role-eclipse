@@ -2,14 +2,14 @@
 eclipse_defaults:
   url: "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release"
   archmap:
-    x86_64: "-x86_64"
+    x86_64: "x86_64"
     i586:   ""
   osmap:
     Linux: linux
     MacOS: macos
   guimap:
-    Linux: "-gtk"
-    MacOS: "-cocoa"
+    Linux: "gtk"
+    MacOS: "cocoa"
     Win32: ""
   distros:
     # https://de.wikipedia.org/wiki/Eclipse_(IDE)
@@ -93,6 +93,7 @@ eclipse_defaults:
         - org.eclipse.swtbot.eclipse.feature.group
         - org.eclipse.swtbot.feature.group
         - net.sf.eclipsecs.feature.group
+      creates_feature: org.eclipse.emf
     cdt:
       repositories:
         - "http://download.eclipse.org/tools/cdt/releases/helios/"
@@ -103,50 +104,53 @@ eclipse_defaults:
         - org.eclipse.cdt.debug.ui.memory.feature.group
         - org.eclipse.cdt.debug.edc.feature.group
         - org.eclipse.cdt.util.feature.group
+      creates_feature: com.cthing.cmakeed
     cmakeed:
       repositories:
         - "http://cmakeed.sourceforge.net/eclipse/"
       install_units:
         - com.cthing.cmakeed.feature.feature.group
-    openinterminal:
-      repositories:
-        - "http://eclipse-openinterminal.googlecode.com/svn/trunk/site/"
-      install_units:
-        - OpenInTerminal.feature.group
+      creates_feature: com.cthing.cmakeed
     protobuf:
       repositories:
         - "http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"
         - "http://protobuf-dt.googlecode.com/git/update-site"
       install_units:
         - com.google.eclipse.protobuf.feature.group
+      creates_feature: com.google.eclipse.protobuf
     yedit:
       repositories:
         - "http://dadacoalition.org/yedit"
       install_units:
         - org.dadacoalition.yedit.feature.group
+      creates_feature: org.dadacoalition.yedit
     shelled:
       repositories:
         - "http://download.eclipse.org/technology/dltk/updates/"
         - "https://sourceforge.net/projects/shelled/files/shelled/update/"
       install_units:
         - net.sourceforge.shelled.feature.group
+      creates_feature: net.sourceforge.shelled
     webpageed:
       repositories:
         - "http://download.eclipse.org/technology/dltk/updates/"
         - "https://sourceforge.net/projects/shelled/files/shelled/update/"
       install_units:
         - org.eclipse.jst.webpageeditor.feature.feature.group
+      creates_feature: org.eclipse.jst.webpageeditor
     pydev:
       repositories:
         - "http://download.eclipse.org/technology/dltk/updates/"
         - "http://pydev.org/updates/"
       install_units:
         - org.python.pydev.feature.feature.group
+      creates_feature: org.python.pydev
     m2e:
       repositories:
         - "http://download.eclipse.org/technology/m2e/releases/1.5/1.5.0.20140606-0033"
       install_units:
         - org.eclipse.m2e.feature.feature.group,org.eclipse.m2e.logback.feature.feature.group
+      creates_feature: org.eclipse.m2e
     subclipse:
       repositories:
         - http://subclipse.tigris.org/update_1.10.x
@@ -156,12 +160,14 @@ eclipse_defaults:
         - org.tigris.subversion.clientadapter.svnkit.feature.feature.group
         - org.tigris.subversion.clientadapter.javahl.feature.feature.group
         - org.tigris.subversion.subclipse.graph.feature.feature.group
+      creates_feature: org.tigris.subversion.subclipse
     egit:
       repositories:
         - "http://download.eclipse.org/egit/updates"
       install_units:
         - "org.eclipse.egit.feature.group"
         - "org.eclipse.egit.mylyn.feature.group"
+      creates_feature: org.eclipse.egit
     scala:
       repositories:
         - "http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site"
@@ -173,6 +179,7 @@ eclipse_defaults:
         - org.scala.tools.eclipse.search.feature.feature.group
         - org.scalaide.worksheet.feature.feature.group
         - org.scala-ide.sdt.scalatest.feature.feature.group
+      creates_feature: org.scala-ide
     redmine_mylyn:
       repositories:
         - "jar:https://github.com/ljader/redmine-mylyn-plugin/releases/download/release-0.4.0.201602071631/net.sf.redmine_mylyn.p2repository-0.4.0.201602071631.zip!/"
@@ -180,6 +187,7 @@ eclipse_defaults:
         - "http://download.eclipse.org/releases/indigo/"
       install_units:
         - net.sf.redmine_mylyn.feature.feature.group
+      creates_feature: net.sf.redmine_mylyn
     symfony:
       repositories:
         - "http://p2.pdt-extensions.org"
@@ -189,8 +197,10 @@ eclipse_defaults:
         - com.dubture.doctrine.feature.feature.group
         - com.dubture.indexing.feature.feature.group
         - com.dubture.twig.feature.feature.group
+      creates_feature: com.dubture.symfony
     makegood:
       repositories:
         - "http://p2.pdt-extensions.org"
       install_units:
         - com.piece_framework.makegood_feature.feature.group
+      creates_feature: com.piece_framework.makegood_feature

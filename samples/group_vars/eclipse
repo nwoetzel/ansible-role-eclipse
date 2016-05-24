@@ -1,15 +1,9 @@
 ---
 eclipse_distro: luna
 eclipse_package: php
+eclipse_plugins_install: ["egit","symfony","makegood","redmine_mylyn"]
 
 eclipse:
-  owner: vagrant
-  group: vagrant
-  dir:
-    tmp:     "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
-    install: "{{eclipse_base_dir}}"
-  cur_dir: "{{ lookup('pipe','pwd') }}"
-  plugins_enabled: ["egit","symfony","makegood","redmine_mylyn"]
   ini:
     # Enable overriding eclipse.ini
     enabled: yes

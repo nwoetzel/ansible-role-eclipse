@@ -2,23 +2,15 @@
 eclipse_distro: luna
 eclipse_package: java # any of jee, java, cpp, dsl, php, rcp, parallel, testing, automative, scout etc.
 
+# the name of all plugins that should be installed
+# a complete list can be found in vars/main.yml
+eclipse_plugins_install: []
+
 # optional
 # service release - the latest known is used when not set - depending on the distro can be 'SR2' (<=luna) or just '2' (>=mars)
 #eclipse_service_release: SR2
 
-eclipse_base_dir: "/home/ubuntu/sw"
-
 eclipse:
-  owner: root
-  group: root
-  dir:
-    tmp:     "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
-    install: "{{eclipse_base_dir}}"
-  cur_dir: "{{ lookup('pipe','pwd') }}"
-  ## Most likely you dont need to edit 
-  archive_extracted: "eclipse"
-#  home_dir: "{{eclipse_base_dir}}/{{eclipse_name}}-{{eclipse_version}}"
-  plugins_enabled: []
   ini:
     # Enable overriding eclipse.ini
     enabled: yes
