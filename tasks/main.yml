@@ -11,6 +11,10 @@
   include: eclipseini.yml
   tags: [eclipse]
 
+- name: set vm from java-oracle role
+  include: eclipseinijavavm.yml
+  tags: [eclipse]
+
 - name: create links
   include: link.yml
   tags: [eclipse]

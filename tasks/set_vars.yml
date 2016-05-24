@@ -15,5 +15,5 @@
 
 - name: set java download url and install dir
   set_fact:
-    eclipse_install_dir:  "{{ eclipse_install_dir  | default( ansible_env.HOME ~ '/sw/eclipse' ) }}"
+    eclipse_install_dir:  "{{ eclipse_install_dir | default( ansible_env.HOME ~ '/sw/eclipse/' ~  eclipse_defaults.distros[eclipse_distro].version ) }}"
     eclipse_download_url: "{{ eclipse_url }}/{{ eclipse_distro }}/{{ eclipse_update }}/{{ eclipse_file_tar }}&r=1"

@@ -17,6 +17,9 @@ install:
   # Install Ansible.
   - pip install ansible==2.0.2.0
 
+  # install dependent role
+  - git clone https://github.com/nwoetzel/ansible-role-java-oracle ansible-role-java-oracle
+
 script:
   - "cd samples"
 
