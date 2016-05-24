@@ -1,7 +1,6 @@
 ---
-eclipse_name: luna
-eclipse_download: php
-eclipse_base_dir: "/home/vagrant/sw"
+eclipse_distro: luna
+eclipse_package: php
 
 eclipse:
   owner: vagrant

@@ -1,42 +1,58 @@
 ---
-eclipse:
+eclipse_defaults:
+  url: "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release"
+  archmap:
+    x86_64: "-x86_64"
+    i586:   ""
+  osmap:
+    Linux: linux
+    MacOS: macos
+  guimap:
+    Linux: "-gtk"
+    MacOS: "-cocoa"
+    Win32: ""
   distros:
     # https://de.wikipedia.org/wiki/Eclipse_(IDE)
-    callisto:
-      version: 3.2
     europa:
       version: 3.3
+      latest_service_release: winter
+      packages: [jee,java,rcp,cpp]
     ganymede:
+      version: 3.4
+      latest_service_release: SR2
+      packages: [jee,java,cpp,reporting,rcp]
+    galileo:
       version: 3.5
+      latest_service_release: SR2
+      packages: [cpp,java,php,jee,rcp,reporting,pulsar]
     helios:
       version: 3.6
+      latest_service_release: SR2
+      packages: [jee,javascript,cpp,php,java,rcp,reporting,pulsar]
     indigo:
       version: 3.7
+      latest_service_release: SR2
+      packages: [jee,java,javascript,modeling,reportingrcp,testing,scout]
     juno:
       version: 4.2
+      latest_service_release: SR2
+      packages: [jee,java,cpp,mobile,dsl,reporting,modeling,rcp,testing,parallel,scout]
     kepler:
       version: 4.3
+      latest_service_release: SR2
+      packages: [standard,jee,java,cpp,mobile,dsl,rcp,testing,reporting,parallel,scout]
     luna:
       version: 4.4
-      downloads:
-        java:
-          archive: "eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz"
-          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR1/eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz&r=1"
-        jee:
-          archive: "eclipse-jee-luna-SR1-linux-gtk-x86_64.tar.gz"
-          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR1/eclipse-jee-luna-SR1-linux-gtk-x86_64.tar.gz&r=1"
-        php:
-          archive: "eclipse-php-luna-SR2-linux-gtk-x86_64.tar.gz"
-          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR2/eclipse-php-luna-SR2-linux-gtk-x86_64.tar.gz&r=1"
+      latest_service_release: SR2
+      packages: [java,jee,cpp,php,standard,dsl,reporting,rcp,modeling,parallel,testing,scout]
     mars:
       version: 4.5
-      downloads:
-        jee:
-          archive: "eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz"
-          url:     "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz&r=1"
-        php:
-          archive: "eclipse-php-mars-2-linux-gtk-x86_64.tar.gz"
-          url:     "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-php-mars-2-linux-gtk-x86_64.tar.gz&r=1"
+      latest_service_release: 2
+      packages: [jee,java,cpp,php,committers,rcp,dsl,modeling,reporting,parallel,scout,testing]
+    neon:
+      version: 4.6
+      latest_service_release: RC1
+      packages: [jee,cpp,android,php,committers,modeling,rcp,testing,parallel,scout]
   plugins:
     emf:
       repositories:

@@ -1,10 +1,8 @@
 ---
 - name: Configure eclipse ini configuration java vm location '-vm' flag
   lineinfile:
-    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     state: present
-    owner: "{{eclipse.owner}}"
-    group: "{{eclipse.group}}"
     backup: yes
     regexp: "^-vm$"
     insertbefore: "^-vmargs$"
@@ -13,10 +11,8 @@
 
 - name: Configure eclipse ini configuration java vm location actual location
   lineinfile:
-    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     state: present
-    owner: "{{eclipse.owner}}"
-    group: "{{eclipse.group}}"
     regexp: "{{ eclipse.ini.vm }}"
     insertafter: "^-vm$"
     line: "{{ eclipse.ini.vm }}"
@@ -24,14 +20,14 @@
 
 - name: remove MaxPermSize for java 1.8
   lineinfile:
-    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     state: absent
     regexp: "^-XX:MaxPermSize=.*$"
   when: java_version is defined and java_version == "jdk8"
 
 - name: change splash
   replace:
-    dest: "{{ eclipse.dir.install }}/eclipse-{{ eclipse_name }}/eclipse.ini"
+    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     regexp: "/^.*-showSplash.*$/"
     replace: "-noSplash"
 
