@@ -21,9 +21,6 @@ install:
   - git clone https://github.com/nwoetzel/ansible-role-java-oracle
 
 script:
-  - "ls"
-  - "ls ../"
-
   - "cd samples"
 
   # check syntax
