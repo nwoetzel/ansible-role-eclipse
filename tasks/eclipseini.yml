@@ -1,48 +1,38 @@
 ---
-- name: Configure eclipse ini configuration java vm location '-vm' flag
+- name: Configure eclipse ini next line parameters option
   lineinfile:
     dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     state: present
-    backup: yes
-    regexp: "^-vm$"
+    regexp: "^{{ item.key | regex_escape() }}$"
     insertbefore: "^-vmargs$"
-    line: "-vm"
-  when: eclipse.ini.vm
+    line: "{{ item.key }}"
+    backup: yes
+  when: eclipse_ini_overwrite
+  with_dict: "{{ eclipse_ini_flags_next_line | default('{}') }}"
 
-- name: Configure eclipse ini configuration java vm location actual location
+- name: Configure eclipse ini next line parameters value
   lineinfile:
     dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     state: present
-    regexp: "{{ eclipse.ini.vm }}"
-    insertafter: "^-vm$"
-    line: "{{ eclipse.ini.vm }}"
-  when: eclipse.ini.vm
-
-- name: remove MaxPermSize for java 1.8
-  lineinfile:
-    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
-    state: absent
-    regexp: "^-XX:MaxPermSize=.*$"
-  when: java_version is defined and java_version == "jdk8"
+    regexp: "^{{ item.value | regex_escape() }}$"
+    insertafter: "^{{ item.key }}$"
+    line: "{{ item.value }}"
+    backup: yes
+  when: eclipse_ini_overwrite
+  with_dict: "{{ eclipse_ini_flags_next_line | default('{}') }}"
 
 - name: change splash
   replace:
     dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
     regexp: "/^.*-showSplash.*$/"
     replace: "-noSplash"
+  when: eclipse_ini_overwrite
 
-#- name:  Configure eclipse ini configuration (Launcher XXMaxPermSize)
-#  lineinfile: regexp="^256m" line="{{ eclipse_launcher_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
-#  when: eclipse_ini_enabled
-#
-#- name:  Configure eclipse ini configuration (XXMaxPermSize)
-#  lineinfile: regexp="^-XX:MaxPermSize=.*" line="-XX:MaxPermSize={{ eclipse_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
-#  when: java_version is not defined or java_version != "jdk8"
-#
-#- name:  Configure eclipse ini configuration (Xms)
-#  lineinfile: regexp="^-Xms40m" line="-Xms{{ eclipse_XXMaxPermSize }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
-#  when: eclipse_ini_enabled
-#
-#- name:  Configure eclipse ini configuration (Xmx)
-#  lineinfile: regexp="^-Xmx512m" line="-Xmx{{ eclipse_Xmx }}" dest={{eclipse_base_dir}}/eclipse-{{eclipse_major}}/eclipse.ini
-#  when: eclipse_ini_enabled
+- name: change vmargs
+  replace:
+    dest: "{{ eclipse_unpack_dir }}/eclipse.ini"
+    regexp: "^{{ item.key | regex_escape }}.*$"
+    replace: "{{ item.key }}{{ item.value }}"
+    backup: yes
+  with_dict: "{{ eclipse_ini_flags_vmargs }}"
+  when: eclipse_ini_overwrite and (eclipse_ini_flags_vmargs is defined)

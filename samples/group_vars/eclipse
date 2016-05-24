@@ -3,18 +3,17 @@ eclipse_distro: luna
 eclipse_package: php
 eclipse_plugins_install: ["egit","symfony","makegood","redmine_mylyn"]
 
-eclipse:
-  ini:
-    # Enable overriding eclipse.ini
-    enabled: yes
-    # define the location of the vm to be used by eclipse
-    vm: "/home/vagrant/sw/jdk/current/bin/java"
-    flags:
-      #default is 256m
-      launcher_XXMaxPermSize: "256m"
-      #default is 256m
-      XXMaxPermSize: "1024m"
-      #default is -Xms40m
-      Xms: "512m"
-      #default is -Xmx512m
-      Xmx: "2048m"
+# manipulate eclipse.ini
+eclipse_ini_overwrite: true
+#eclipse_ini_flags_next_line:
+#  "-vm": /opt/bin/java
+  #default is 256m
+#  "--launcher.XXMaxPermSize": 256m
+eclipse_ini_flags_vmargs:
+  #default is 256m
+  "-XX:MaxPermSize=": "1024m"
+  #default is -Xms40m
+  "-Xms": "512m"
+  #default is -Xmx512m
+  "-Xmx": "2048m"
+
