@@ -1,0 +1,5 @@
+[sample]
+localhost ansible_connection=local
+
+[eclipse]
+localhost ansible_connection=local

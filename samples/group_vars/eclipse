@@ -1,0 +1,27 @@
+---
+eclipse_name: luna
+eclipse_download: php
+eclipse_base_dir: "/home/vagrant/sw"
+
+eclipse:
+  owner: vagrant
+  group: vagrant
+  dir:
+    tmp:     "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
+    install: "{{eclipse_base_dir}}"
+  cur_dir: "{{ lookup('pipe','pwd') }}"
+  plugins_enabled: ["egit","symfony","makegood","redmine_mylyn"]
+  ini:
+    # Enable overriding eclipse.ini
+    enabled: yes
+    # define the location of the vm to be used by eclipse
+    vm: "/home/vagrant/sw/jdk/current/bin/java"
+    flags:
+      #default is 256m
+      launcher_XXMaxPermSize: "256m"
+      #default is 256m
+      XXMaxPermSize: "1024m"
+      #default is -Xms40m
+      Xms: "512m"
+      #default is -Xmx512m
+      Xmx: "2048m"
