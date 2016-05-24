@@ -1,4 +1,7 @@
-## ansible-role-eclipse
+Ansible role eclipse
+========================
+
+[![Build Status](https://travis-ci.org/nwoetzel/ansible-role-eclipse.svg?branch=master)](https://travis-ci.org/nwoetzel/ansible-role-eclipse)
 
 This Ansible Eclipse role is based on the work from [Alban Andrieu](fr.linkedin.com/in/nabla/) which one may find [here](https://github.com/AlbanAndrieu/ansible-eclipse). It has been extensively rewritten to support any non-preconfigured plugins, different eclipse distributions (downloads) and more.
 
