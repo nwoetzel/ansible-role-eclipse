@@ -20,7 +20,9 @@ install:
   - pip install ansible==2.0.2.0
 
   # install dependent role
-  - "cd tests && ansible-galaxy install -r roles/requirements.yml"
+  - cd tests
+  - ansible-galaxy install -r roles/requirements.yml"
+  - cd
 
 script:
   - "cd tests"
