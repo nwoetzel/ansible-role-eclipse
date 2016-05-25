@@ -1,3 +1,19 @@
 ---
+galaxy_info:
+  author: Nils Woetzel
+  description: Installer for eclipse of different distro-package combination and with selected plugins.
+  company: Heidelberg Institute for Theoretical Studies gGmbH, Heidelberg, Germany
+  license: GPL3
+  min_ansible_version: 2.1.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - eclipse
+    - development
 dependencies:
-  - role: ansible-role-java-oracle
+  - name: ansible-role-java-oracle
+    src: https://github.com/nwoetzel/ansible-role-java-oracle
+    scm: git
+    version: v1.0
