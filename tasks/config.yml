@@ -1,29 +1,20 @@
 ---
 - name: set location of org.eclipse.ui.ide.pref
   set_fact:
-    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/configuration/.settings/org.eclipse.ui.ide.prefs"
+    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.ui_id_prefs.filename }}"
 
 - name: check if org.eclipse.ui.ide.prefs exists
   stat:
     path: "{{ eclipse_ui_ide_pref }}"
   register: eclipse_ui_ide_pref_stat
 
-- name: Configure settings/org.eclipse.ui.ide.prefs SHOW_WORKSPACE_SELECTION_DIALOG
+- name: Configure settings/org.eclipse.ui.ide.prefs
   lineinfile:
-    dest: "{{ eclipse_unpack_dir }}/configuration/.settings/org.eclipse.ui.ide.prefs"
+    dest: "{{ eclipse_ui_ide_pref }}"
     state: present
     backup: no
-    regexp: "^SHOW_WORKSPACE_SELECTION_DIALOG=.*$"
-    line: "SHOW_WORKSPACE_SELECTION_DIALOG=false"
-  when: eclipse_ui_ide_pref_stat.stat.exists
-  tags: [eclipse_config]
-
-- name: Configure settings/org.eclipse.ui.ide.prefs RECENT_WORKSPACES
-  lineinfile:
-    dest: "{{ eclipse_unpack_dir }}/configuration/.settings/org.eclipse.ui.ide.prefs"
-    state: present
-    backup: no
-    regexp: "^RECENT_WORKSPACES=.*$"
-    line: "RECENT_WORKSPACES="
+    regexp: "^{{ item.key }}=.*$"
+    line: "{{ item.key }}={{ item.value }}"
+  with_dict: "{{ eclipse_defaults.ui_id_prefs.settings }}"
   when: eclipse_ui_ide_pref_stat.stat.exists
   tags: [eclipse_config]

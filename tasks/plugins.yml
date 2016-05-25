@@ -1,4 +1,5 @@
 ---
+# http://help.eclipse.org/juno/index.jsp?topic=/org.eclipse.platform.doc.isv/guide/p2_director.html
 - name: create plugins install command
   set_fact:
     plugin_install_command: "{{ eclipse_unpack_dir }}/eclipse -nosplash \

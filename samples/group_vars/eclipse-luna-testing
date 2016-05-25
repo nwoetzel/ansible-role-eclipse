@@ -1,7 +1,7 @@
 ---
 eclipse_distro: luna
-eclipse_package: php
-eclipse_plugins_install: ["egit","symfony","makegood","redmine_mylyn"]
+eclipse_package: testing
+eclipse_plugins_install: ["egit"]
 
 # manipulate eclipse.ini
 eclipse_ini_overwrite: true

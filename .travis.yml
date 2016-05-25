@@ -6,7 +6,9 @@ python: "2.7"
 cache: pip
 
 env:
-  - SITE=sample.yml
+  - DISTRO=luna
+  - DISTRO=mars
+  - DISTRO=neon 
 
 addons:
   apt:
@@ -24,14 +26,14 @@ script:
   - "cd samples"
 
   # check syntax
-  - "ansible-playbook -i inventory $SITE --syntax-check"
+  - "ansible-playbook -i inventory-${DISTRO}-testing sample.yml --syntax-check"
 
   # run playbook
-  - "ansible-playbook -i inventory $SITE --connection=local --sudo"
+  - "ansible-playbook -i inventory-${DISTRO}-testing sample.yml --connection=local --sudo"
 
   # run again to check if it is indempotent
   - >
-    ansible-playbook -i inventory $SITE --connection=local --sudo
+    ansible-playbook -i inventory-${DISTRO}-testing sample.yml --connection=local --sudo
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)

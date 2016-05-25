@@ -1,5 +1,5 @@
-[sample]
+[java-oracle]
 localhost ansible_connection=local
 
-[eclipse]
+[eclipse-neon-testing]
 localhost ansible_connection=local
