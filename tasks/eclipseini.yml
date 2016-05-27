@@ -8,7 +8,7 @@
     line: "{{ item.key }}"
     backup: yes
   when: eclipse_ini_overwrite
-  with_dict: "{{ eclipse_ini_flags_next_line | default('{}') }}"
+  with_dict: "{{ eclipse_ini_flags_next_line }}"
 
 - name: Configure eclipse ini next line parameters value
   lineinfile:
@@ -19,7 +19,7 @@
     line: "{{ item.value }}"
     backup: yes
   when: eclipse_ini_overwrite
-  with_dict: "{{ eclipse_ini_flags_next_line | default('{}') }}"
+  with_dict: "{{ eclipse_ini_flags_next_line }}"
 
 - name: change splash
   replace:
@@ -35,4 +35,4 @@
     replace: "{{ item.key }}{{ item.value }}"
     backup: yes
   with_dict: "{{ eclipse_ini_flags_vmargs }}"
-  when: eclipse_ini_overwrite and (eclipse_ini_flags_vmargs is defined)
+  when: eclipse_ini_overwrite

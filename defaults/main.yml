@@ -12,11 +12,11 @@ eclipse_plugins_install: []
 
 # manipulate eclipse.ini
 eclipse_ini_overwrite: false
-#eclipse_ini_flags_next_line:
+eclipse_ini_flags_next_line: {}
 #  "-vm": /opt/bin/java
 #  #default is 256m
 #  "--launcher.XXMaxPermSize": 256m
-#eclipse_ini_flags_vmargs:
+eclipse_ini_flags_vmargs: {}
 #  #default is 256m
 #  "-XX:MaxPermSize=": "1024m"
 #  #default is -Xms40m
