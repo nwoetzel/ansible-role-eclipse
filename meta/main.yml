@@ -16,4 +16,4 @@ dependencies:
   - name: ansible-role-java-oracle
     src: https://github.com/nwoetzel/ansible-role-java-oracle
     scm: git
-    version: v1.1
+    version: v1.1.1
