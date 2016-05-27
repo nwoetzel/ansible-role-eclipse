@@ -1,4 +1,4 @@
 # from github
 - src: https://github.com/nwoetzel/ansible-role-java-oracle
-  version: v1.1
+  version: v1.1.2
   path: roles/

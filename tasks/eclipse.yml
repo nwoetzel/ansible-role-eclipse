@@ -19,6 +19,7 @@
   tags: [eclipse]
 
 - name: install graphics libraries required
+  become: yes
   package:
     name:  "{{ item }}"
     state: present
