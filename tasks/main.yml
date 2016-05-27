@@ -15,10 +15,6 @@
   include: eclipseinijavavm.yml
   tags: [eclipse]
 
-- name: create links
-  include: link.yml
-  tags: [eclipse]
-
 - include: plugins.yml
   tags: [eclipse]
 

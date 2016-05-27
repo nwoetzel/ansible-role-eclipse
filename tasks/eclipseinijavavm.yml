@@ -9,7 +9,6 @@
     backup: yes
   when: eclipse_ini_overwrite and
         (java_unpack_dir is defined) and
-        (eclipse_ini_flags_next_line is undefined) and
         (eclipse_ini_flags_next_line["-vm"] is undefined)
 
 - name: Configure eclipse ini -vm option from java-oracle role
@@ -22,5 +21,4 @@
     backup: yes
   when: eclipse_ini_overwrite and
         (java_unpack_dir is defined) and
-        (eclipse_ini_flags_next_line is undefined) and
         (eclipse_ini_flags_next_line["-vm"] is undefined)
