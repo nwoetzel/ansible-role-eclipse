@@ -17,15 +17,3 @@
     creates: "{{ eclipse_ini_path }}"
 #    extra_opts: ["--strip-components=1"]
   tags: [eclipse]
-
-- name: install graphics libraries required
-  become: yes
-  package:
-    name:  "{{ item }}"
-    state: present
-  with_items:
-    - libgtk-3-0
-#    - libcanberra-gtk-module # for sound?
-    - libswt-gtk-3-jni
-    - libswt-gtk-3-java
-  when: ansible_distribution == 'Ubuntu'
