@@ -59,6 +59,12 @@ eclipse_defaults:
       latest_service_release: RC1
       packages: [jee,cpp,android,php,committers,modeling,rcp,testing,parallel,scout]
   plugins:
+    aptana_studio:
+      repositories:
+        - "http://download.aptana.com/studio3/plugin/install"
+      install_units:
+        - com.aptana.feature.studio.feature.group
+      creates_feature: com.aptana.feature
     emf:
       repositories:
         - "http://download.eclipse.org/tools/orbit/downloads/drops/S20110515001817/repository/"
