@@ -25,4 +25,4 @@ dependencies:
 #      - name: libcanberra-gtk-module # for sound?
       - name: libswt-gtk-3-jni
       - name: libswt-gtk-3-java
-
+      - "{{ package_list_eclipse }}"
