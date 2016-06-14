@@ -16,7 +16,7 @@ dependencies:
   - name: ansible-role-java-oracle
     src: https://github.com/nwoetzel/ansible-role-java-oracle
     scm: git
-    version: v1.1.2
+    version: v1.1.3
   - name: GROG.package
     version: v1.2.1
     become: yes
