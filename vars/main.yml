@@ -56,7 +56,7 @@ eclipse_defaults:
       packages: [jee,java,cpp,php,committers,rcp,dsl,modeling,reporting,parallel,scout,testing]
     neon:
       version: 4.6
-      latest_service_release: RC1
+      latest_service_release: RC3
       packages: [jee,cpp,android,php,committers,modeling,rcp,testing,parallel,scout]
   plugins:
     aptana_studio:
