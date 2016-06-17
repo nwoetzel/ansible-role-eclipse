@@ -21,8 +21,6 @@ dependencies:
     version: v1.2.1
     become: yes
     package_list:
-      - name: libgtk-3-0
-#      - name: libcanberra-gtk-module # for sound?
-      - name: libswt-gtk-3-jni
-      - name: libswt-gtk-3-java
+      - name: libwebkitgtk-3.0-0
+      - name: libcanberra-gtk-module # for sound?
       - "{{ package_list_eclipse }}"

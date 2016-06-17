@@ -61,9 +61,13 @@ eclipse_defaults:
   plugins:
     aptana_studio:
       repositories:
-        - "http://download.aptana.com/studio3/plugin/install"
+#        - "http://download.aptana.com/studio3/plugin/install"
+        - "http://studio-jenkins.appcelerator.org/job/studio3-feature-development/lastSuccessfulBuild/artifact/dist/"
       install_units:
+        - com.aptana.feature.feature.group
         - com.aptana.feature.studio.feature.group
+        - com.aptana.php.feature.feature.group
+        - org.radrails.rails.feature.group
       creates_feature: com.aptana.feature
     emf:
       repositories:
