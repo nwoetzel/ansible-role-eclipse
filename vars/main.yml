@@ -219,3 +219,16 @@ eclipse_defaults:
       install_units:
         - com.piece_framework.makegood_feature.feature.group
       creates_feature: com.piece_framework.makegood_feature
+    pti:
+      repositories:
+        - "http://www.phpsrc.org/eclipse/pti/"
+      install_units:
+        - org.phpsrc.eclipse.pti.core.feature.group
+        - org.phpsrc.eclipse.pti.library.pear.feature.group
+        - org.phpsrc.eclipse.pti.tools.codesniffer.feature.group
+        - org.phpsrc.eclipse.pti.tools.phpcpd.feature.group
+        - org.phpsrc.eclipse.pti.tools.phpdepend.feature.group
+        - org.phpsrc.eclipse.pti.tools.phpmd.feature.group
+        - org.phpsrc.eclipse.pti.tools.phpunit.feature.group
+        - org.phpsrc.eclipse.pti.
+      creates_feature: org.phpsrc.eclipse.pti
