@@ -230,5 +230,4 @@ eclipse_defaults:
         - org.phpsrc.eclipse.pti.tools.phpdepend.feature.group
         - org.phpsrc.eclipse.pti.tools.phpmd.feature.group
         - org.phpsrc.eclipse.pti.tools.phpunit.feature.group
-        - org.phpsrc.eclipse.pti.
       creates_feature: org.phpsrc.eclipse.pti
