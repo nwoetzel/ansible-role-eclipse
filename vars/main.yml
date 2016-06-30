@@ -231,3 +231,9 @@ eclipse_defaults:
         - org.phpsrc.eclipse.pti.tools.phpmd.feature.group
         - org.phpsrc.eclipse.pti.tools.phpunit.feature.group
       creates_feature: org.phpsrc.eclipse.pti
+    ebean_enhancer:
+      repositories:
+        - "http://ebean-orm.github.io/eclipse/update"
+      install_units:
+        - com.avaje.ebean.eclipse.feature.group
+      creates_feature: com.avaje.ebean.eclipse 
