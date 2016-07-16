@@ -245,7 +245,7 @@ eclipse_defaults:
         - de.walware.rj.core.feature.group
         - de.walware.statet.r.feature.group
         - de.walware.statet.rtm.ftable.feature.group
-        - de.walware.statet.ggplot.feature.group
+        - de.walware.statet.rtm.ggplot.feature.group
         - de.walware.statet.r.sweave.feature.group
         - de.walware.statet.redocs.wikitext.r.feature.group
       creates_feature:
