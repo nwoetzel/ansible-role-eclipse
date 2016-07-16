@@ -1,7 +1,7 @@
 ---
 eclipse_distro: mars
 eclipse_package: testing
-eclipse_plugins_install: ["egit"]
+eclipse_plugins_install: ["egit","statet"]
 
 # manipulate eclipse.ini
 eclipse_ini_overwrite: true

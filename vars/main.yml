@@ -236,4 +236,17 @@ eclipse_defaults:
         - "http://ebean-orm.github.io/eclipse/update"
       install_units:
         - com.avaje.ebean.eclipse.feature.group
-      creates_feature: com.avaje.ebean.eclipse 
+      creates_feature: com.avaje.ebean.eclipse
+    statet:
+      repositories:
+        - http://download.walware.de/eclipse-4.5
+      install_units:
+        - de.walware.rj.eclient.feature.group
+        - de.walware.rj.core.feature.group
+        - de.walware.statet.r.feature.group
+        - de.walware.statet.rtm.ftable.feature.group
+        - de.walware.statet.ggplot.feature.group
+        - de.walware.statet.r.sweave.feature.group
+        - de.walware.statet.redocs.wikitext.r.feature.group
+      creates_feature:
+        - de.walware.statet
