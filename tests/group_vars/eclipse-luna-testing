@@ -3,6 +3,8 @@ eclipse_distro: luna
 eclipse_package: testing
 eclipse_plugins_install: ["egit"]
 
+eclipse_download_folder_remote: /tmp/ansible_download
+
 # manipulate eclipse.ini
 eclipse_ini_overwrite: true
 #eclipse_ini_flags_next_line:

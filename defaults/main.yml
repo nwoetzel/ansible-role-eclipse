@@ -9,6 +9,9 @@ eclipse_plugins_install: []
 # additonal packages that are installed through GROG.package ansible role
 package_list_eclipse: []
 
+# when set, the package is downloaded to client
+#eclipse_download_folder_remote: /tmp/ansible_download
+
 # optional
 # service release - the latest known is used when not set - depending on the distro can be 'SR2' (<=luna) or just '2' (>=mars)
 #eclipse_service_release: SR2

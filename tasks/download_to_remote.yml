@@ -1,0 +1,17 @@
+---
+- name: set download location on remote for eclipse tar file
+  set_fact:
+    eclipse_download_folder: "{{ eclipse_download_folder_remote }}"
+
+- name: create downloads folder if it does not exist yet
+  file:
+    dest: "{{ eclipse_download_folder }}"
+    state: directory
+  tags: eclipse_remote_download
+
+- name: Download eclipse to remote if we don't have it
+  get_url:
+    url:   "{{ eclipse_download_url }}" \
+    dest:  "{{ eclipse_download_folder ~ '/' ~ eclipse_file_tar }}" \
+    force: no
+  tags: eclipse_remote_download

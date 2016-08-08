@@ -3,6 +3,10 @@
   tags: [eclipse]
 
 - include: download_to_master.yml
+  when: eclipse_download_folder_remote is undefined 
+
+- include: download_to_remote.yml
+  when: eclipse_download_folder_remote is defined
 
 - include: eclipse.yml
   tags: [eclipse]
