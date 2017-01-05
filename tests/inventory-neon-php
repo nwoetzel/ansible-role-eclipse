@@ -1,5 +1,5 @@
 [java-oracle]
 localhost ansible_connection=local
 
-[eclipse-mars-php]
+[eclipse-neon-php]
 localhost ansible_connection=local

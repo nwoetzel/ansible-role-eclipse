@@ -9,7 +9,7 @@ env:
   - DISTRO=luna-testing
   - DISTRO=mars-testing
   - DISTRO=neon-testing
-  - DISTRO=mars-php
+  - DISTRO=neon-php
 
 addons:
   apt:
