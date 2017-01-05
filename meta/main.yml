@@ -23,4 +23,5 @@ dependencies:
     package_list:
       - name: libwebkitgtk-3.0-0
       - name: libcanberra-gtk-module # for sound?
+      - name: libcanberra-gtk3-module
       - "{{ package_list_eclipse }}"
