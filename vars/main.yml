@@ -56,11 +56,11 @@ eclipse_defaults:
       packages: [jee,java,cpp,php,committers,rcp,dsl,modeling,reporting,parallel,scout,testing]
     neon:
       version: 4.6
-      latest_service_release: 1a
+      latest_service_release: 2
       packages: [jee,cpp,android,php,committers,modeling,reporting,rcp,testing,parallel,scout]
     oxygen:
       version: 4.7
-      latest_service_release: M2
+      latest_service_release: M4
       packages: [jee,java,cpp,android,committers,javascript,dsl,testing,rcp,parallel,mdoeling,scout]
   plugins:
     aptana_studio:
