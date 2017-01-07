@@ -10,7 +10,7 @@
 - name: set plugin install uis and repositories
   set_fact:
     plugin_installIU: "{{ eclipse_defaults.plugins[plugin_name].install_units | join(',') }}"
-    plugin_repositories: "['http://download.eclipse.org/releases/' + {{ eclipse_distro }}] + {{ eclipse_defaults.plugins[plugin_name].repositories }}"
+    plugin_repositories: "{{ ['http://download.eclipse.org/releases/' + eclipse_distro] + eclipse_defaults.plugins[plugin_name].repositories }}"
   tags: [eclipse_plugins]
 
 # all plugins
