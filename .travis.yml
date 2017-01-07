@@ -10,6 +10,7 @@ env:
   - DISTRO=mars-testing
   - DISTRO=neon-testing
   - DISTRO=neon-php
+  - DISTRO=neon-scala
 
 addons:
   apt:

@@ -49,7 +49,7 @@ eclipse_defaults:
     luna:
       version: 4.4
       latest_service_release: SR2
-      packages: [java,jee,cpp,php,standard,dsl,reporting,rcp,modeling,parallel,testing,scout]
+      packages: [jee,java,cpp,php,standard,dsl,reporting,rcp,modeling,parallel,testing,scout]
     mars:
       version: 4.5
       latest_service_release: 2
@@ -57,7 +57,7 @@ eclipse_defaults:
     neon:
       version: 4.6
       latest_service_release: 2
-      packages: [jee,cpp,android,php,committers,modeling,reporting,rcp,testing,parallel,scout]
+      packages: [jee,java,cpp,android,php,committers,modeling,reporting,rcp,testing,parallel,scout]
     oxygen:
       version: 4.7
       latest_service_release: M4
@@ -189,7 +189,8 @@ eclipse_defaults:
       creates_feature: org.eclipse.egit
     scala:
       repositories:
-        - "http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site"
+#        - "http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site"
+        - "http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site"
       install_units:
         - org.scala-ide.play2.feature.feature.group
         - org.scala-ide.sbt.feature.feature.group
