@@ -193,7 +193,7 @@ eclipse_defaults:
         - "http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site"
       install_units:
         - org.scala-ide.play2.feature.feature.group
-        - org.scala-ide.sbt.feature.feature.group
+#        - org.scala-ide.sbt.feature.feature.group
         - org.scala-ide.scala211.feature.feature.group
         - org.scala-ide.sdt.feature.feature.group
         - org.scala.tools.eclipse.search.feature.feature.group
