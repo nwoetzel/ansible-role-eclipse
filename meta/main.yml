@@ -10,15 +10,14 @@ galaxy_info:
     versions:
     - all
   galaxy_tags:
+    - IDE
     - eclipse
     - development
 dependencies:
-  - name: ansible-role-java-oracle
-    src: https://github.com/nwoetzel/ansible-role-java-oracle
-    scm: git
-    version: v1.1.5
+  - name: nwoetzel.java-oracle
+    version: v1.2.0
   - name: GROG.package
-    version: v1.2.1
+    version: v1.2.4
     become: yes
     package_list:
       - name: libwebkitgtk-3.0-0
