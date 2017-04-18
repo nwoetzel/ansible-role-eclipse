@@ -33,6 +33,7 @@ All defaults are documented also in the [defaults](defaults/main.yml) file.
 ## Facts
 
 | variable | description |
+|--:|:--|
 | eclipse_install_dir | the directory eclipse is installed to |
 
 ## Possibilities
