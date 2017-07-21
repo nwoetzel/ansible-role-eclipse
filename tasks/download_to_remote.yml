@@ -12,8 +12,8 @@
   file:
     dest: "{{ eclipse_download_folder }}"
     state: directory
-  when: not ( eclipse_download_folder_stat.isdir is defined and eclipse_download_folder_stat.isdir ) and
-        not ( eclipse_download_folder_stat.islnk is defined and eclipse_download_folder_stat.islnk )
+  when: not ( eclipse_download_folder_stat.stat.isdir is defined and eclipse_download_folder_stat.stat.isdir ) and
+        not ( eclipse_download_folder_stat.stat.islnk is defined and eclipse_download_folder_stat.stat.islnk )
   tags: eclipse_remote_download
 
 - name: Download eclipse to remote if we don't have it
