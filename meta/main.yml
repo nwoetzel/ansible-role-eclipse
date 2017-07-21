@@ -15,7 +15,7 @@ galaxy_info:
     - development
 dependencies:
   - name: nwoetzel.java-oracle
-    version: v1.3.0
+    version: v1.3.1
   - name: GROG.package
     version: v1.2.4
     become: yes
