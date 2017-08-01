@@ -135,7 +135,7 @@ eclipse_defaults:
         - "https://raw.githubusercontent.com/15knots/cmake4eclipse/master/releng/comp-update/"
       install_units:
         - de.marw.cdt.cmake.feature.group
-      creates_feature: de.marw.cmake
+      creates_feature: de.marw.cdt.cmake
     cmake_helper:
       repositories:
         - "http://cmake-helper.eu/releases/1.0"
