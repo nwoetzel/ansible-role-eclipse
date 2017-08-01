@@ -1,0 +1,5 @@
+[java-oracle]
+localhost ansible_connection=local
+
+[eclipse-neon-cpp]
+localhost ansible_connection=local

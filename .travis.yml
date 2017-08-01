@@ -9,7 +9,8 @@ env:
   - DISTRO=luna-testing
   - DISTRO=mars-testing
   - DISTRO=neon-testing
-  - DISTRO=neon-php
+#  - DISTRO=neon-php
+  - DISTRO=neon-cpp
   - DISTRO=neon-scala
   - DISTRO=oxygen-java
 

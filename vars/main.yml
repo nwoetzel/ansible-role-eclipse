@@ -126,10 +126,22 @@ eclipse_defaults:
       creates_feature: com.cthing.cmakeed
     cmakeed:
       repositories:
-        - "http://cmakeed.sourceforge.net/eclipse/"
+        - "https://sourceforge.net/projects/cmakeed/files/updates/"
       install_units:
         - com.cthing.cmakeed.feature.feature.group
       creates_feature: com.cthing.cmakeed
+    cmake4eclipse:
+      repositories:
+        - "https://raw.githubusercontent.com/15knots/cmake4eclipse/master/releng/comp-update/"
+      install_units:
+        - de.marw.cdt.cmake.feature.group
+      creates_feature: de.marw.cmake
+    cmake_helper:
+      repositories:
+        - "http://cmake-helper.eu/releases/1.0"
+      install_units:
+        - nl.usetechnology.cmake.feature.feature.group
+      creates_feature: nl.usetechnology.cmake
     protobuf:
       repositories:
         - "http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"
