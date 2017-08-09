@@ -4,13 +4,13 @@
   set_fact:
     plugin_name: "{{ item }}"
     plugin_tag: "ansible_install_plugin_{{ item }}"
-    plugin_creates: "{{ eclipse_unpack_dir}}/features/{{ eclipse_defaults.plugins[item].creates_feature }}*"
+    plugin_creates: "{{ eclipse_unpack_dir}}/features/{{ eclipse_plugin_dict[item].creates_feature }}*"
   tags: [eclipse_plugins]
 
 - name: set plugin install uis and repositories
   set_fact:
-    plugin_installIU: "{{ eclipse_defaults.plugins[plugin_name].install_units | join(',') }}"
-    plugin_repositories: "{{ ['http://download.eclipse.org/releases/' + eclipse_distro] + eclipse_defaults.plugins[plugin_name].repositories }}"
+    plugin_installIU: "{{ eclipse_plugin_dict[plugin_name].install_units | join(',') }}"
+    plugin_repositories: "{{ ['http://download.eclipse.org/releases/' + eclipse_distro] + eclipse_plugin_dict[plugin_name].repositories }}"
   tags: [eclipse_plugins]
 
 # all plugins

@@ -3,7 +3,17 @@ java_oracle_jce_policy: yes
 
 eclipse_distro: neon
 eclipse_package: cpp
-eclipse_plugins_install:
+
+eclipse_plugins_custom: 
+  cdtunittests:
+    repositories:
+      - "http://download.eclipse.org/tools/cdt/releases/9.2"
+    install_units:
+      - org.eclipse.cdt.testrunner.feature.feature.group
+    creates_feature: org.eclipse.cdt.testrunner 
+
+eclipse_plugins_install:\
+  - cdtunittests
   - cmakeed
   - cmake4eclipse
   - cmake_helper

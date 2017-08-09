@@ -22,7 +22,8 @@ All defaults are documented also in the [defaults](defaults/main.yml) file.
 |--:|:-:|:-:|:--|
 | eclipse_distro | yes | - | the eclipse distribution, e.g. mars, neon |
 | eclipse_package | yes | - | the package (i.e. which default plugins are installed), e.g. java, php, cpp ... |
-| eclipse_plugins_install | no | [] | list of plugin names to be installed, as they are defined in the [vars](vars/main.yml) |
+| eclipse_plugins_custom | no | {} | a dictionary of plugin declarations (to add more to the defaults in vars/main.yml or to overwrite) - read more in defaults/main.yml |
+| eclipse_plugins_install | no | [] | list of plugin names to be installed, as they are defined in the [vars](vars/main.yml) or with the variable eclipse_plugins_custom |
 | package_list_eclipse | no | [] | additional apt package names that should be installed |
 | eclipse_download_folder_remote | no | - | when set, the file is downloaded to the installation host |
 | eclipse_service_release | no | set by this [role](vars/main.yml) | the latest known is used when not set - depending on the distro can be 'SR2' (<=luna) or just '2' (>=mars) |

@@ -6,6 +6,18 @@ eclipse_package: java # any of jee, java, cpp, dsl, php, rcp, parallel, testing,
 # a complete list can be found in vars/main.yml
 eclipse_plugins_install: []
 
+# custom plugins dictionary
+# if there is a plugin, that is not defined or needs to be reconfigured/overwritten in vars/main.yml,
+# this can be used to customize them
+# in order to install them, it is still required to add them to "eclipse_plugins_install" list above
+eclipse_plugins_custom: {}
+#  cmake4eclipse:
+#    repositories:
+#      - "https://raw.githubusercontent.com/15knots/cmake4eclipse/master/releng/comp-update/"
+#    install_units:
+#      - de.marw.cdt.cmake.feature.group
+#    creates_feature: de.marw.cdt.cmake
+
 # additonal packages that are installed through GROG.package ansible role
 package_list_eclipse: []
 
