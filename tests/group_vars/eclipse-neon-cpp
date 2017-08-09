@@ -9,10 +9,10 @@ eclipse_plugins_custom:
     repositories:
       - "http://download.eclipse.org/tools/cdt/releases/9.2"
     install_units:
-      - org.eclipse.cdt.testrunner.feature.feature.group
-    creates_feature: org.eclipse.cdt.testrunner 
+      - org.eclipse.cdt.testsrunner.feature.feature.group
+    creates_feature: org.eclipse.cdt.testsrunner 
 
-eclipse_plugins_install:\
+eclipse_plugins_install:
   - cdtunittests
   - cmakeed
   - cmake4eclipse
