@@ -8,12 +8,15 @@
     eclipse_gui:    "{{ eclipse_defaults.guimap[ansible_system] }}"
   failed_when: (eclipse_distro not in eclipse_defaults.distros) or
                (eclipse_package not in eclipse_defaults.distros[eclipse_distro].packages)
+  tags: [always]
 
 - name: set name of tar file
   set_fact:
     eclipse_file_tar:    "eclipse-{{ eclipse_package }}-{{ eclipse_distro }}-{{ eclipse_update }}-{{ eclipse_os }}{{ '-' ~ eclipse_gui if eclipse_gui }}{{ '-' ~ eclipse_arch if eclipse_arch }}.tar.gz"
-
+  tags: [always]
+  
 - name: set java download url and install dir
   set_fact:
     eclipse_install_dir:  "{{ eclipse_install_dir | default( ansible_env.HOME ~ '/sw/eclipse/' ~  eclipse_defaults.distros[eclipse_distro].version ) }}"
     eclipse_download_url: "{{ eclipse_url }}/{{ eclipse_distro }}/{{ eclipse_update }}/{{ eclipse_file_tar }}&r=1"
+  tags: [always]

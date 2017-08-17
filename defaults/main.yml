@@ -6,6 +6,12 @@ eclipse_package: java # any of jee, java, cpp, dsl, php, rcp, parallel, testing,
 # a complete list can be found in vars/main.yml
 eclipse_plugins_install: []
 
+# the name of all plugins that should be removed
+# a complete list can be found in vars/main.yml
+# anything listed in both install and uninstall
+# will be uninstalled
+eclipse_plugins_uninstall: []
+
 # custom plugins dictionary
 # if there is a plugin, that is not defined or needs to be reconfigured/overwritten in vars/main.yml,
 # this can be used to customize them

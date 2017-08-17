@@ -1,5 +1,6 @@
 ---
 eclipse_defaults:
+  tags: [always]
   url: "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release"
   archmap:
     x86_64: "x86_64"

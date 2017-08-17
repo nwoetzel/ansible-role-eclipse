@@ -9,6 +9,7 @@
   set_fact:
     eclipse_unpack_dir: "{{ eclipse_install_dir ~ '/eclipse' }}"
     eclipse_ini_path:   "{{ eclipse_install_dir ~ '/eclipse/eclipse.ini' }}"
+  tags: [always]
 
 - name: unpack archive from master
   unarchive:
