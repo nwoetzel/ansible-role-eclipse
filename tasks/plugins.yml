@@ -66,9 +66,6 @@
   when: (eclipse_plugin_dict[item] is defined)
   tags: [eclipse_plugins]
 
-<<<<<<< HEAD
-  # all plugins
-=======
 - name: check that all eclipse_plugins_uninstall are valid
   fail:
     msg: "unknown plugin names in eclipse_plugins_uninstall: {{ eclipse_plugins_uninstall|difference(eclipse_plugin_dict.keys()) }}; use any of: {{ eclipse_plugin_dict.keys() }}"
@@ -76,7 +73,6 @@
   tags: [eclipse_plugins]
 
   # uninstall plugins
->>>>>>> 6338d47... Allow uninstalling plugins and fix the 'eclipse_plugins' tag.
 - include: single_plugin_uninstall.yml
   with_items: '{{ eclipse_plugins_uninstall | unique }}'
   when: (eclipse_plugin_dict[item] is defined)
