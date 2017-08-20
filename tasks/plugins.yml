@@ -62,6 +62,18 @@
 
 # all plugins
 - include: single_plugin.yml
-  with_items: '{{ eclipse_plugins_install }}'
+  with_items: '{{ eclipse_plugins_install | difference(eclipse_plugins_uninstall) | unique }}'
+  when: (eclipse_plugin_dict[item] is defined)
+  tags: [eclipse_plugins]
+
+- name: check that all eclipse_plugins_uninstall are valid
+  fail:
+    msg: "unknown plugin names in eclipse_plugins_uninstall: {{ eclipse_plugins_uninstall|difference(eclipse_plugin_dict.keys()) }}; use any of: {{ eclipse_plugin_dict.keys() }}"
+  when: (eclipse_plugins_uninstall|difference(eclipse_plugin_dict.keys())|length > 0)
+  tags: [eclipse_plugins]
+
+  # uninstall plugins
+- include: single_plugin_uninstall.yml
+  with_items: '{{ eclipse_plugins_uninstall | unique }}'
   when: (eclipse_plugin_dict[item] is defined)
   tags: [eclipse_plugins]

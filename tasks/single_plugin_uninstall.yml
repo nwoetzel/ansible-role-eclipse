@@ -1,0 +1,23 @@
+---
+# http://help.eclipse.org/juno/index.jsp?topic=/org.eclipse.platform.doc.isv/guide/p2_director.html
+- name: set general plugin vars
+  set_fact:
+    plugin_uninstall_name: "{{ item }}"
+    plugin_uninstall_tag: "ansible_uninstall_plugin_{{ item }}"
+    plugin_uninstall_removes: "{{ eclipse_unpack_dir}}/features/{{ eclipse_plugin_dict[item].creates_feature }}*"
+  tags: [eclipse_plugins]
+
+- name: set plugin install uis and repositories
+  set_fact:
+    plugin_uninstallIU: "{{ eclipse_plugin_dict[plugin_uninstall_name].install_units | join(',') }}"
+  tags: [eclipse_plugins]
+
+# Remove all plugins
+- name: Uninstall eclipse plugins
+  command: "{{ plugin_install_command }} \
+    -uninstallIU {{ plugin_uninstallIU }} \
+    -tag {{ plugin_uninstall_tag }}"
+  args:
+    removes: "{{ plugin_uninstall_removes }}"
+#  ignore_errors: True
+  tags: [eclipse_plugins]
