@@ -127,7 +127,7 @@ eclipse_defaults:
       creates_feature: com.cthing.cmakeed
     cmakeed:
       repositories:
-        - "https://sourceforge.net/projects/cmakeed/files/updates/"
+        - "https://raw.githubusercontent.com/15knots/cmakeed/master/cmakeed-update/"
       install_units:
         - com.cthing.cmakeed.feature.feature.group
       creates_feature: com.cthing.cmakeed
