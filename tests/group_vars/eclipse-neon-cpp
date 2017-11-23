@@ -1,5 +1,6 @@
 ---
-java_oracle_jce_policy: yes
+java_product: jre
+java_version: 8
 
 eclipse_distro: neon
 eclipse_package: cpp
@@ -31,4 +32,3 @@ eclipse_ini_flags_vmargs:
   "-Xms": "512m"
   #default is -Xmx512m
   "-Xmx": "2048m"
-

@@ -1,4 +1,7 @@
 ---
+java_product: jdk
+java_version: 9
+
 eclipse_distro: oxygen
 eclipse_package: java
 eclipse_plugins_install:
@@ -17,4 +20,3 @@ eclipse_ini_flags_vmargs:
   "-Xms": "512m"
   #default is -Xmx512m
   "-Xmx": "2048m"
-

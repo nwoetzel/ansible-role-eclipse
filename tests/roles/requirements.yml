@@ -1,6 +1,6 @@
 # from github
 - name: nwoetzel.java-oracle
-  version: v1.3.3
+  version: v1.4.0
   path: roles/
 - name: GROG.package
   version: v1.2.4

@@ -1,4 +1,7 @@
 ---
+java_product: jre
+java_version: 8
+
 eclipse_distro: neon
 eclipse_package: testing
 eclipse_plugins_install: ["egit"]
@@ -16,4 +19,3 @@ eclipse_ini_flags_vmargs:
   "-Xms": "512m"
   #default is -Xmx512m
   "-Xmx": "2048m"
-
