@@ -1,0 +1,16 @@
+---
+- name: check if pydev certificate was added to java keystore already
+  shell: "{{ java_unpack_dir }}/bin/keytool -list -keystore {{ java_unpack_dir }}/lib/security/cacerts -storepass changeit -alias pydev-cert"
+  ignore_errors: true
+  changed_when: false
+  register: pydev_cert_imported
+
+- name: download pydev certificate
+  get_url:
+    url: "http://pydev.org/pydev_certificate.cer"
+    dest: "/tmp/pydev_certificate.cer"
+  when: pydev_cert_imported | failed
+
+- name: store pydev certificate
+  shell: "{{ java_unpack_dir }}/bin/keytool -importcert -trustcacerts -file /tmp/pydev_certificate.cer -alias pydev-cert -keystore {{ java_unpack_dir }}/lib/security/cacerts -storepass changeit -noprompt"
+  when: pydev_cert_imported | failed
