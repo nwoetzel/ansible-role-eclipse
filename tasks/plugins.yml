@@ -11,7 +11,7 @@
   tags: [eclipse_plugins]
 
 #Pydev
-- name: Install python pexpect for adding Pydev certificat
+- name: Install python pexpect for adding Pydev certificate on Debian system
   package:
     name:  "{{ item }}"
     state: present
@@ -20,8 +20,15 @@
   when: (ansible_distribution == 'Debian') and 
         ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
-
-#todo for RehHat : sudo yum install pexpect.noarch
+- name: Install python pexpect for adding Pydev certificate on CentOS system
+  package:
+    name:  "{{ item }}"
+    state: present
+  with_items:
+    - pexpect.noarch
+  when: (ansible_distribution == 'CentOS') and 
+        ('pydev' in eclipse_plugins_install)
+  tags: [eclipse_plugins]
 
 - name: Transfer eclipse Pydev certificate
   copy: src=add_pydev_certificate.py dest={{ eclipse_dir_tmp }} mode=0777 force=yes
