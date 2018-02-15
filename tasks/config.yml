@@ -1,7 +1,7 @@
 ---
 - name: set location of org.eclipse.ui.ide.pref
   set_fact:
-    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.ui_id_prefs.filename }}"
+    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.ui_id_prefs_filename }}"
 
 - name: check if org.eclipse.ui.ide.prefs exists
   stat:
@@ -15,6 +15,6 @@
     backup: no
     regexp: "^{{ item.key }}=.*$"
     line: "{{ item.key }}={{ item.value }}"
-  with_dict: "{{ eclipse_defaults.ui_id_prefs.settings }}"
+  with_dict: "{{ eclipse_ui_id_prefs_settings }}"
   when: eclipse_ui_ide_pref_stat.stat.exists
   tags: [eclipse_config]

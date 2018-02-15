@@ -34,6 +34,11 @@ package_list_eclipse: []
 # service release - the latest known is used when not set - depending on the distro can be 'SR2' (<=luna) or just '2' (>=mars)
 #eclipse_service_release: SR2
 
+# change the ui_id_prefs as key-value pairs
+eclipse_ui_id_prefs_settings:
+  SHOW_WORKSPACE_SELECTION_DIALOG: "false"
+  RECENT_WORKSPACES: "{{ ansible_env.HOME }}/eclipse-workspace"
+
 # manipulate eclipse.ini
 eclipse_ini_overwrite: false
 eclipse_ini_flags_next_line: {}

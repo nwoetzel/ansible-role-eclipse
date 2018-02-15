@@ -12,11 +12,7 @@ eclipse_defaults:
     Linux: "gtk"
     MacOS: "cocoa"
     Win32: ""
-  ui_id_prefs:
-    filename: "configuration/.settings/org.eclipse.ui.ide.prefs"
-    settings:
-      SHOW_WORKSPACE_SELECTION_DIALOG: "false"
-      RECENT_WORKSPACES: ""
+  ui_id_prefs_filename: "configuration/.settings/org.eclipse.ui.ide.prefs"
   distros:
     # https://de.wikipedia.org/wiki/Eclipse_(IDE)
     europa:

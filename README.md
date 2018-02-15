@@ -30,6 +30,7 @@ All defaults are documented also in the [defaults](defaults/main.yml) file.
 | eclipse_ini_overwrite | no | false | modify eclipse.ini |
 | eclipse_ini_flags_next_line | no | {} | a dictionary of ini flags for eclipse, e.g. '"-vm": /opt/bin/java' |
 | eclipse_ini_flags_vmargs | no | {} | a dictionary of vmargs for the java virtual machine, e.g. '"-XX:MaxPermSize=": "1024m"' |
+| eclipse_ui_id_prefs_settings | no | { SHOW_WORKSPACE_SELECTION_DIALOG: "false",  RECENT_WORKSPACES: ""} | key-value pairs to insert/overwrite in the org.eclipse.ui.ide.prefs file |
 
 ## Facts
 

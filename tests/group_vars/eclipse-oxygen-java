@@ -20,3 +20,8 @@ eclipse_ini_flags_vmargs:
   "-Xms": "512m"
   #default is -Xmx512m
   "-Xmx": "2048m"
+
+# change the ui_id_prefs as key-value pairs
+eclipse_ui_id_prefs_settings:
+  SHOW_WORKSPACE_SELECTION_DIALOG: "true"
+  RECENT_WORKSPACES: "{{ ansible_env.HOME }}/workspace"
