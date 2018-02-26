@@ -47,3 +47,6 @@ script:
     ${HOME}/sw/eclipse/?.?/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -listTags -listInstalledRoots
     && (echo 'eclipse installed' && exit 0)
     || (echo 'eclipse missing' && exit 1)
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
