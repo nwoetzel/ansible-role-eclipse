@@ -21,7 +21,7 @@ addons:
 
 install:
   # Install Ansible.
-  - pip install ansible==2.0.2.0
+  - pip install ansible==2.4.3.0
 
   # install dependent role
   - ansible-galaxy install --roles-path=tests/roles --role-file=tests/roles/requirements.yml

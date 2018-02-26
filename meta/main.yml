@@ -4,7 +4,7 @@ galaxy_info:
   description: Installer for eclipse of different distro-package combination and with selected plugins.
   company: HITS gGmbH, Heidelberg, Germany
   license: GPLv3
-  min_ansible_version: 2.0.2
+  min_ansible_version: 2.4.3
   platforms:
   - name: Ubuntu
     versions:
