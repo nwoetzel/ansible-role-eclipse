@@ -12,7 +12,7 @@
 
 #Pydev
 - name: install pydev certificate
-  include: import_pydev_cert.yml
+  import_tasks: import_pydev_cert.yml
   when: ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 
@@ -44,7 +44,7 @@
 #  tags: [eclipse_plugins]
 
 # all plugins
-- include: single_plugin.yml
+- include_tasks: single_plugin.yml
   with_items: '{{ eclipse_plugins_install | difference(eclipse_plugins_uninstall) | unique }}'
   when: (eclipse_plugin_dict[item] is defined)
   tags: [eclipse_plugins]
@@ -56,7 +56,7 @@
   tags: [eclipse_plugins]
 
   # uninstall plugins
-- include: single_plugin_uninstall.yml
+- include_tasks: single_plugin_uninstall.yml
   with_items: '{{ eclipse_plugins_uninstall | unique }}'
   when: (eclipse_plugin_dict[item] is defined)
   tags: [eclipse_plugins]

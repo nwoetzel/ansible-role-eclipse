@@ -1,25 +1,25 @@
 ---
-- include: set_vars.yml
+- import_tasks: set_vars.yml
   tags: [eclipse]
 
-- include: download_to_master.yml
+- import_tasks: download_to_master.yml
   when: eclipse_download_folder_remote is undefined 
 
-- include: download_to_remote.yml
+- import_tasks: download_to_remote.yml
   when: eclipse_download_folder_remote is defined
 
-- include: eclipse.yml
+- import_tasks: eclipse.yml
   tags: [eclipse]
 
 - name: configure eclipse.ini
-  include: eclipseini.yml
+  import_tasks: eclipseini.yml
   tags: [eclipse]
 
 - name: set vm from java-oracle role
-  include: eclipseinijavavm.yml
+  import_tasks: eclipseinijavavm.yml
   tags: [eclipse]
 
-- include: plugins.yml
+- import_tasks: plugins.yml
   tags: [eclipse]
 
-- include: config.yml
+- import_tasks: config.yml
