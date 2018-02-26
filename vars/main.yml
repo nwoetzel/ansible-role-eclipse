@@ -12,7 +12,9 @@ eclipse_defaults:
     Linux: "gtk"
     MacOS: "cocoa"
     Win32: ""
-  ui_id_prefs_filename: "configuration/.settings/org.eclipse.ui.ide.prefs"
+  settings_subfolder: "configuration/.settings"
+  # located in settings subfolder
+  ui_id_prefs_filename: "org.eclipse.ui.ide.prefs"
   distros:
     # https://de.wikipedia.org/wiki/Eclipse_(IDE)
     europa:

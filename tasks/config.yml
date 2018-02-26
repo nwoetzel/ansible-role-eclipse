@@ -1,20 +1,26 @@
 ---
 - name: set location of org.eclipse.ui.ide.pref
   set_fact:
-    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.ui_id_prefs_filename }}"
+    eclipse_settings_folder: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.settings_subfolder }}"
+    eclipse_ui_ide_pref: "{{ eclipse_unpack_dir }}/{{ eclipse_defaults.settings_subfolder }}/{{ eclipse_defaults.ui_id_prefs_filename }}"
 
-- name: check if org.eclipse.ui.ide.prefs exists
-  stat:
+- name: ensure that settings folder exists
+  file:
+    path: "{{ eclipse_settings_folder }}"
+    state: directory
+  tags: [eclipse_config]
+
+- name: ensure that org.eclipse.ui.ide.prefs file exists
+  file:
     path: "{{ eclipse_ui_ide_pref }}"
-  register: eclipse_ui_ide_pref_stat
+    state: touch
 
-- name: Configure settings/org.eclipse.ui.ide.prefs
+- name: Configure org.eclipse.ui.ide.prefs
   lineinfile:
-    dest: "{{ eclipse_ui_ide_pref }}"
+    path: "{{ eclipse_ui_ide_pref }}"
     state: present
     backup: no
     regexp: "^{{ item.key }}=.*$"
     line: "{{ item.key }}={{ item.value }}"
   with_dict: "{{ eclipse_ui_id_prefs_settings }}"
-  when: eclipse_ui_ide_pref_stat.stat.exists
   tags: [eclipse_config]
