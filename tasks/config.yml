@@ -10,10 +10,16 @@
     state: directory
   tags: [eclipse_config]
 
+- name: check if org.eclipse.ui.ide.prefs exists
+  stat:
+    path: "{{ eclipse_ui_ide_pref }}"
+  register: eclipse_ui_ide_pref_stat
+
 - name: ensure that org.eclipse.ui.ide.prefs file exists
   file:
     path: "{{ eclipse_ui_ide_pref }}"
     state: touch
+  when: not eclipse_ui_ide_pref_stat.stat.exists
 
 - name: Configure org.eclipse.ui.ide.prefs
   lineinfile:
