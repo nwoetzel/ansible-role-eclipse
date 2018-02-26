@@ -36,8 +36,12 @@ package_list_eclipse: []
 
 # change the ui_id_prefs as key-value pairs
 eclipse_ui_id_prefs_settings:
+  MAX_RECENT_WORKSPACES: "10"
   SHOW_WORKSPACE_SELECTION_DIALOG: "false"
+  RECENT_WORKSPACES_PROTOCOL: "3"
+  SHOW_RECENT_WORKSPACES: "false"
   RECENT_WORKSPACES: "{{ ansible_env.HOME }}/eclipse-workspace"
+  "eclipse.preferences.version": "1"
 
 # manipulate eclipse.ini
 eclipse_ini_overwrite: false
