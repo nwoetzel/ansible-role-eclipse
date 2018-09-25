@@ -59,7 +59,7 @@ eclipse_defaults:
       packages: [jee, java, cpp, android, php, committers, modeling, reporting, rcp, testing, parallel, scout]
     oxygen:
       version: 4.7
-      latest_service_release: R
+      latest_service_release: R2
       packages: [jee, java, cpp, android, committers, javascript, dsl, testing, rcp, parallel, modeling, scout]
   plugins:
     aptana_studio:
