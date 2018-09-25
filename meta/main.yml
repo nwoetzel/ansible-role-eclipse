@@ -17,7 +17,7 @@ galaxy_info:
     - "6"
     - "7"
   galaxy_tags:
-    - IDE
+    - ide
     - eclipse
     - development
 dependencies:
