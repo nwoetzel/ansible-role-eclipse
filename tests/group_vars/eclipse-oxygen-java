@@ -1,7 +1,4 @@
 ---
-java_product: jdk
-java_version: 9
-
 eclipse_distro: oxygen
 eclipse_package: java
 eclipse_plugins_install:

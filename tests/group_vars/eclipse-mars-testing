@@ -1,7 +1,4 @@
 ---
-java_product: jre
-java_version: 8
-
 eclipse_distro: mars
 eclipse_package: testing
 eclipse_plugins_install: ["egit","statet"]

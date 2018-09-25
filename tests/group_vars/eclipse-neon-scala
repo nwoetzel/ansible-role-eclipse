@@ -1,7 +1,4 @@
 ---
-java_product: jre
-java_version: 8
-
 eclipse_distro: neon
 eclipse_package: java
 eclipse_plugins_install:
