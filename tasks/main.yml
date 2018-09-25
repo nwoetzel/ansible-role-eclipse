@@ -15,10 +15,6 @@
   import_tasks: eclipseini.yml
   tags: [eclipse]
 
-- name: set vm from java-oracle role
-  import_tasks: eclipseinijavavm.yml
-  tags: [eclipse]
-
 - import_tasks: plugins.yml
   tags: [eclipse]
 
