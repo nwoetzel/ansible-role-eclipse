@@ -1,2 +1,2 @@
-[eclipse-neon-cpp]
+[eclipse-oxygen-testing]
 localhost ansible_connection=local

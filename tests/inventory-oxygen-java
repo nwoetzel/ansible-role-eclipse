@@ -1,5 +1,2 @@
-[java-oracle]
-localhost ansible_connection=local
-
 [eclipse-oxygen-java]
 localhost ansible_connection=local

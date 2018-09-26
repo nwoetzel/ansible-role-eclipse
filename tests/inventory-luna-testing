@@ -1,5 +1,2 @@
-[java-oracle]
-localhost ansible_connection=local
-
 [eclipse-luna-testing]
 localhost ansible_connection=local
