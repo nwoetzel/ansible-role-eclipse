@@ -6,6 +6,7 @@
     eclipse_url:    "{{ eclipse_defaults.url }}"
     eclipse_update: "{{ eclipse_service_release | default( eclipse_defaults.distros[eclipse_distro].latest_service_release ) }}"
     eclipse_gui:    "{{ eclipse_defaults.guimap[ansible_system] }}"
+    eclipse_url_suffix: "&{{ ( eclipse_mirror_id is defined ) | ternary( 'mirror_id', 'r') }}={{ eclipse_mirror_id | default( '1' ) }}"
   failed_when: (eclipse_distro not in eclipse_defaults.distros) or
                (eclipse_package not in eclipse_defaults.distros[eclipse_distro].packages)
   tags: [always]
@@ -18,5 +19,5 @@
 - name: set eclipse download url and install dir
   set_fact:
     eclipse_install_dir:  "{{ eclipse_install_dir | default( ansible_env.HOME ~ '/sw/eclipse/' ~  eclipse_defaults.distros[eclipse_distro].version ) }}"
-    eclipse_download_url: "{{ eclipse_url }}/{{ eclipse_distro }}/{{ eclipse_update }}/{{ eclipse_file_tar }}&{{ (eclipse_mirror_id is defined ) | ternary('mirror_id=' ~ eclipse_mirror_id, 'r=1') }}"
+    eclipse_download_url: "{{ eclipse_url }}/{{ eclipse_distro }}/{{ eclipse_update }}/{{ eclipse_file_tar }}{{ eclipse_url_suffix }}"
   tags: [always]
