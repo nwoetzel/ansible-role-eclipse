@@ -2,6 +2,9 @@
 - import_tasks: set_vars.yml
   tags: [eclipse]
 
+- debug:
+    var: eclipse_download_url
+
 - import_tasks: download_to_master.yml
   when: eclipse_download_folder_remote is undefined 
 
