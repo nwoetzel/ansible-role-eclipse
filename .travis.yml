@@ -10,6 +10,7 @@ env:
   - DISTRO=mars-testing
   - DISTRO=neon-testing
   - DISTRO=oxygen-testing
+  - DISTRO=photon-java
 
 addons:
   apt:
