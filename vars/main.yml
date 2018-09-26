@@ -305,12 +305,6 @@ eclipse_defaults:
       install_units:
         - org.eclipse.papyrus.sdk.feature.feature.group
       creates_feature: org.eclipse.papyrus.uml
-    yedit:
-      repositories:
-        - "http://dadacoalition.org/yedit"
-      install_units:
-        - org.dadacoalition.yedit.feature.feature.group
-      creates_feature: org.dadacoalition.yedit.feature
     jenkinseditor:
       repositories:
         - "https://dl.bintray.com/de-jcup/jenkinseditor"
