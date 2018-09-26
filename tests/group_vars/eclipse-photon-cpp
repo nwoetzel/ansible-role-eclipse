@@ -1,0 +1,34 @@
+---
+eclipse_distro: photon
+eclipse_package: cpp
+eclipse_plugins_install:
+  - egit
+  - cdtunittests
+  - atlassian_connector
+  - jenkins_connector
+  - cmakeed
+  - cmake4eclipse
+  - cmake_helper
+  - eclox
+  - cppstyle
+  - jenkinseditor
+  - dltk_shelled
+
+# manipulate eclipse.ini
+eclipse_ini_overwrite: true
+#eclipse_ini_flags_next_line:
+#  "-vm": /opt/bin/java
+  #default is 256m
+#  "--launcher.XXMaxPermSize": 256m
+eclipse_ini_flags_vmargs:
+  #default is 256m
+  "-XX:MaxPermSize=": "1024m"
+  #default is -Xms40m
+  "-Xms": "512m"
+  #default is -Xmx512m
+  "-Xmx": "2048m"
+
+# change the ui_id_prefs as key-value pairs
+eclipse_ui_id_prefs_settings:
+  SHOW_WORKSPACE_SELECTION_DIALOG: "true"
+  RECENT_WORKSPACES: "{{ ansible_env.HOME }}/workspace"

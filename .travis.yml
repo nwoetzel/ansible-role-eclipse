@@ -11,6 +11,7 @@ env:
   - DISTRO=neon-testing
   - DISTRO=oxygen-testing
   - DISTRO=photon-java
+  - DISTRO=photon-cpp
 
 addons:
   apt:

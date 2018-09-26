@@ -1,0 +1,2 @@
+[eclipse-photon-cpp]
+localhost ansible_connection=local
