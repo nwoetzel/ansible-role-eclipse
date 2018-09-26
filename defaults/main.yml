@@ -30,6 +30,9 @@ package_list_eclipse: []
 # when set, the package is downloaded to client
 #eclipse_download_folder_remote: /tmp/ansible_download
 
+# by default, the best download server is choosen, but when there are problems, an overwrite might be helpful
+#eclipse_mirror_id: 17 #Germany - University of Applied Sciences Esslingen
+
 # optional
 # service release - the latest known is used when not set - depending on the distro can be 'SR2' (<=luna) or just '2' (>=mars)
 #eclipse_service_release: SR2

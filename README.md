@@ -24,6 +24,7 @@ All defaults are documented also in the [defaults](defaults/main.yml) file.
 |--:|:-:|:-:|:--|
 | eclipse_distro | yes | - | the eclipse distribution, e.g. mars, neon |
 | eclipse_package | yes | - | the package (i.e. which default plugins are installed), e.g. java, php, cpp ... |
+| eclipse_mirror_id | no | - | an optional mirror_id for downloading the package, if the default behavior of picking the best one, does not work |
 | eclipse_plugins_custom | no | {} | a dictionary of plugin declarations (to add more to the defaults in vars/main.yml or to overwrite) - read more in defaults/main.yml |
 | eclipse_plugins_install | no | [] | list of plugin names to be installed, as they are defined in the [vars](vars/main.yml) or with the variable eclipse_plugins_custom |
 | package_list_eclipse | no | [] | additional apt package names that should be installed |
