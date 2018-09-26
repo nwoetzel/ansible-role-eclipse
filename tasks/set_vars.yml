@@ -6,7 +6,7 @@
     eclipse_url:    "{{ eclipse_defaults.url }}"
     eclipse_update: "{{ eclipse_service_release | default( eclipse_defaults.distros[eclipse_distro].latest_service_release ) }}"
     eclipse_gui:    "{{ eclipse_defaults.guimap[ansible_system] }}"
-    eclipse_url_suffix: "&{{ ( eclipse_mirror_id is defined ) | ternary( 'mirror_id', 'r') }}={{ eclipse_mirror_id | default( '1' ) }}"
+    eclipse_url_suffix: "&r=1{{ ( eclipse_mirror_id is defined ) | ternary( '&mirror_id=', '') }}{{ eclipse_mirror_id | default( '' ) }}"
   failed_when: (eclipse_distro not in eclipse_defaults.distros) or
                (eclipse_package not in eclipse_defaults.distros[eclipse_distro].packages)
   tags: [always]
