@@ -1,7 +1,10 @@
 ---
 eclipse_distro: mars
 eclipse_package: testing
+
 eclipse_mirror_id: 17
+eclipse_download_folder_remote: /tmp/ansible_download 
+
 eclipse_plugins_install: ["egit","statet"]
 
 # manipulate eclipse.ini
