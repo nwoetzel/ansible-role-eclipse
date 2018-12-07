@@ -1,6 +1,6 @@
 ---
 - name: check if pydev certificate was added to java keystore already
-  shell: "keytool -list -cacerts -storepass changeit -alias pydev-cert"
+  shell: "keytool -list -storepass changeit -alias pydev-cert"
   ignore_errors: true
   changed_when: false
   register: pydev_cert_imported
