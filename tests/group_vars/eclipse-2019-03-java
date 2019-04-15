@@ -1,5 +1,5 @@
 ---
-eclipse_distro: "2019-003"
+eclipse_distro: "2019-03"
 eclipse_package: java
 eclipse_plugins_install:
   - egit
