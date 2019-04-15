@@ -12,6 +12,7 @@ env:
   - DISTRO=oxygen-testing
   - DISTRO=photon-java
   - DISTRO=photon-cpp
+  - DISTRO=2019-03-java
 
 addons:
   apt:
