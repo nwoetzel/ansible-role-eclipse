@@ -65,8 +65,8 @@ eclipse_defaults:
       version: 4.8
       latest_service_release: R
       packages: [jee, java, cpp, committers, javascript, dsl, testing, rcp, parallel, modeling, php, reporting, scout]
-    201906:
-      version: 4.12
+    '2019-03':
+      version: 4.11
       latest_service_release: R
       packages: [jee, java, cpp, committers, javascript, dsl, testing, rcp, parallel, modeling, php, reporting, scout]
   plugins:
