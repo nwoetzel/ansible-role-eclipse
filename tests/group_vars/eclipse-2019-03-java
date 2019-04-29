@@ -3,7 +3,7 @@ eclipse_distro: "2019-03"
 eclipse_package: java
 eclipse_plugins_install:
   - egit
-
+  - pydev
 # manipulate eclipse.ini
 eclipse_ini_overwrite: true
 #eclipse_ini_flags_next_line:
