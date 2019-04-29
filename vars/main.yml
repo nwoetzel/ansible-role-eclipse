@@ -160,7 +160,7 @@ eclipse_defaults:
       repositories:
         - "http://dadacoalition.org/yedit"
       install_units:
-        - org.dadacoalition.yedit.feature.group
+        - org.dadacoalition.yedit.feature.feature.group
       creates_feature: org.dadacoalition.yedit
     shelled:
       repositories:
