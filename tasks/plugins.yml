@@ -17,7 +17,7 @@
   register: stat_java_home
 - name: install pydev certificate
   java_cert:
-    cert_url: http://pydev.org/pydev_certificate.cer
+    cert_url: pydev.org/pydev_certificate.cer
     cert_alias: "pydev-cert"
     keystore_path: "{{ stat_java_home.stat.lnk_source | dirname | dirname }}/lib/security/cacerts"
     keystore_pass: "changeit"
