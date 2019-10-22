@@ -11,8 +11,17 @@
   tags: [eclipse_plugins]
 
 #Pydev
+- name: get java_home
+  stat:
+    path: /usr/bin/java
+  register: stat_java_home
 - name: install pydev certificate
-  import_tasks: import_pydev_cert.yml
+  become: yes
+  java_cert:
+    cert_url: pydev.org/pydev_certificate.cer
+    cert_alias: "pydev-cert"
+    keystore_path: "{{ stat_java_home.stat.lnk_source | dirname | dirname }}/lib/security/cacerts"
+    keystore_pass: "changeit"
   when: ('pydev' in eclipse_plugins_install)
   tags: [eclipse_plugins]
 

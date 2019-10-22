@@ -12,6 +12,7 @@ env:
   - DISTRO=oxygen-testing
   - DISTRO=photon-java
   - DISTRO=photon-cpp
+  - DISTRO=2019-03-java
 
 addons:
   apt:
@@ -43,7 +44,7 @@ script:
 
   # check that is eclipse is installed and which plugins are installed
   - >
-    ${HOME}/sw/eclipse/?.?/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -listTags -listInstalledRoots
+    ${HOME}/sw/eclipse/*.*/eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director -listTags -listInstalledRoots
     && (echo 'eclipse installed' && exit 0)
     || (echo 'eclipse missing' && exit 1)
 
