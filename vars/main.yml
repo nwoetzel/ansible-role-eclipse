@@ -73,6 +73,10 @@ eclipse_defaults:
       version: 4.13
       latest_service_release: R
       packages: [jee, java, cpp, committers, javascript, dsl, testing, rcp, parallel, modeling, php, reporting, scout]
+    '2019-12':
+      version: 4.14
+      latest_service_release: R
+      packages: [jee, java, cpp, committers, javascript, dsl, testing, rcp, parallel, modeling, php, reporting, scout]
   plugins:
     aptana_studio:
       repositories:
