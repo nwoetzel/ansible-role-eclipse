@@ -6,15 +6,11 @@ python: "2.7"
 cache: pip
 
 env:
-  - DISTRO=luna-testing
-  - DISTRO=mars-testing
-  - DISTRO=neon-testing
-  - DISTRO=oxygen-testing
   - DISTRO=photon-java
   - DISTRO=photon-cpp
-  - DISTRO=2019-03-java
   - DISTRO=2019-09-java
   - DISTRO=2019-12-java
+  - DISTRO=2019-12-cpp
 
 addons:
   apt:
