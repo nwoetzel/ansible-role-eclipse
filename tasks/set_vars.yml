@@ -11,9 +11,14 @@
                (eclipse_package not in eclipse_defaults.distros[eclipse_distro].packages)
   tags: [always]
 
+- name: set name of default tar file
+  set_fact:
+    eclipse_file_tar_default:    "eclipse-{{ eclipse_package }}-{{ eclipse_distro }}-{{ eclipse_update }}-{{ eclipse_os }}{{ '-' ~ eclipse_gui if eclipse_gui }}{{ '-' ~ eclipse_arch if eclipse_arch }}.tar.gz"
+  tags: [always]
+
 - name: set name of tar file
   set_fact:
-    eclipse_file_tar:    "eclipse-{{ eclipse_package }}-{{ eclipse_distro }}-{{ eclipse_update }}-{{ eclipse_os }}{{ '-' ~ eclipse_gui if eclipse_gui }}{{ '-' ~ eclipse_arch if eclipse_arch }}.tar.gz"
+    eclipse_file_tar:    "{{ eclipse_file_tar | default(eclipse_file_tar_default) }}"
   tags: [always]
   
 - name: set eclipse download url and install dir
