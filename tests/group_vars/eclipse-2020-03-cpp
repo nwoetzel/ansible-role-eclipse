@@ -1,6 +1,7 @@
 ---
 eclipse_distro: 2020-03
 eclipse_package: cpp
+eclipse_service_release: R-incubation
 eclipse_plugins_install:
   - egit
   - cdtunittests
