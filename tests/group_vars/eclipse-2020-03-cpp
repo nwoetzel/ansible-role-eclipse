@@ -1,7 +1,7 @@
 ---
 eclipse_distro: 2020-03
 eclipse_package: cpp
-eclipse_service_release: R-incubation
+eclipse_file_tar: eclipse-cpp-2020-03-R-incubation-linux-gtk-x86_64.tar.gz
 eclipse_plugins_install:
   - egit
   - cdtunittests
