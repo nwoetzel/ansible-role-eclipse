@@ -20,5 +20,6 @@
   get_url:
     url:   "{{ eclipse_download_url }}"
     dest:  "{{ eclipse_download_folder ~ '/' ~ eclipse_file_tar }}"
+    timeout: 30
     force: no
   tags: eclipse_remote_download
