@@ -13,7 +13,7 @@ eclipse_plugins_install:
   - eclox
   - cppstyle
   - jenkinseditor
-  - dltk_shelled
+#  - dltk_shelled
 
 # manipulate eclipse.ini
 eclipse_ini_overwrite: true
