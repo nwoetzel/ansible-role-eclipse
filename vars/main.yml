@@ -17,42 +17,6 @@ eclipse_defaults:
   ui_id_prefs_filename: "org.eclipse.ui.ide.prefs"
   distros:
     # https://de.wikipedia.org/wiki/Eclipse_(IDE)
-    europa:
-      version: 3.3
-      latest_service_release: winter
-      packages: [jee, java, rcp, cpp]
-    ganymede:
-      version: 3.4
-      latest_service_release: SR2
-      packages: [jee, java, cpp, reporting, rcp]
-    galileo:
-      version: 3.5
-      latest_service_release: SR2
-      packages: [cpp, java, php, jee, rcp, reporting, pulsar]
-    helios:
-      version: 3.6
-      latest_service_release: SR2
-      packages: [jee, javascript, cpp, php, java, rcp, reporting, pulsar]
-    indigo:
-      version: 3.7
-      latest_service_release: SR2
-      packages: [jee, java, javascript, modeling, reportingrcp, testing, scout]
-    juno:
-      version: 4.2
-      latest_service_release: SR2
-      packages: [jee, java, cpp, mobile, dsl, reporting, modeling, rcp, testing, parallel, scout]
-    kepler:
-      version: 4.3
-      latest_service_release: SR2
-      packages: [standard, jee, java, cpp, mobile, dsl, rcp, testing, reporting, parallel, scout]
-    luna:
-      version: 4.4
-      latest_service_release: SR2
-      packages: [jee, java, cpp, php, standard, dsl, reporting, rcp, modeling, parallel, testing, scout]
-    mars:
-      version: 4.5
-      latest_service_release: 2
-      packages: [jee, java, cpp, php, committers, rcp, dsl, modeling, reporting, parallel, scout, testing]
     neon:
       version: 4.6
       latest_service_release: 3
@@ -77,6 +41,10 @@ eclipse_defaults:
       version: 4.14
       latest_service_release: R
       packages: [jee, java, cpp, committers, javascript, dsl, testing, rcp, parallel, modeling, php, reporting, scout]
+    '2020-03':
+      version: 4.15
+      latest_service_release: R
+      packages: [java, jee, cpp, committers, php, dsl, javascript, rcp, modeling, parallel, rust, testing, scout]
   plugins:
     aptana_studio:
       repositories:
