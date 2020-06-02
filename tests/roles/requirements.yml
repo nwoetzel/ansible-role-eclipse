@@ -1,6 +1,6 @@
 # from github
 - name: geerlingguy.java
-  version: 1.9.1
+  version: 1.10.0
   path: roles/
 - name: GROG.package
   version: v1.2.4
