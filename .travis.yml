@@ -11,6 +11,8 @@ env:
   - DISTRO=2019-09-java
   - DISTRO=2019-12-java
   - DISTRO=2019-12-cpp
+  - DISTRO=2020-03-java
+  - DISTRO=2020-03-cpp
 
 addons:
   apt:
