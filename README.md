@@ -13,17 +13,20 @@ This ansible roles installs a eclipse distribution and optional plugins.
 
 ## Dependencies
 
-- ansible >= 2
-- nwoetzel.java-oracle
+- ansible >= 2.4
+- geerlingguy.java
 
 ## Role Variables
 
-All defaults are documented also in the [defaults](defaults/main.yml) file.
+All defaults should also be documented in the [defaults](defaults/main.yml) file.
 
 | variable | required | default | description |
 |--:|:-:|:-:|:--|
 | eclipse_distro | yes | - | the eclipse distribution, e.g. mars, neon |
 | eclipse_package | yes | - | the package (i.e. which default plugins are installed), e.g. java, php, cpp ... |
+| eclipse_os | no | - | the operating system to install for (linux, win, macosx) - is derived using ansible_system |
+| eclipse_arch | no | - | the system architecture (x86, x86_64) - is derived using ansible_architecture |
+| eclipse_tar_file | no | - | the actual tar file downloaded - is assembled from above information, but sometimes needs overwriting, due to inconsistent rule for generating full download urls |
 | eclipse_mirror_id | no | - | an optional mirror_id for downloading the package, if the default behavior of picking the best one, does not work |
 | eclipse_plugins_custom | no | {} | a dictionary of plugin declarations (to add more to the defaults in vars/main.yml or to overwrite) - read more in defaults/main.yml |
 | eclipse_plugins_install | no | [] | list of plugin names to be installed, as they are defined in the [vars](vars/main.yml) or with the variable eclipse_plugins_custom |
@@ -48,13 +51,13 @@ Additinally, many plugins are preconfigured and can just be installed through th
 
 ## Limitations
 
-Eclipse packages with incubation components or classic distributions are not supported yet.
+Eclipse packages with incubation components or classic distributions are not supported yet. (with eclipse_tar_file, one can fix it a little)
 Plugins need to be configured in the role, before they can be installed trough their name or repository url.
 Adaption for either limitation can be easily implemented.
 
 ## Dependencies
 
-This role depends on [nwoetzel/ansible-role-oracle-java](https://github.com/nwoetzel/ansible-role-oracle-java) to install a jdk and to set the '-vm' argument in the eclipse.ini. This dependency can be removed from meta/main.yml - and the role will work but will require a java to be in the PATH or JAVA_HOME to be set.
+This role depends on [geerlingguy/java](https://github.com/geerlingguy/ansible-role-java) to install a jdk and to set the '-vm' argument in the eclipse.ini. This dependency can be removed from meta/main.yml - and the role will work but will require a java to be in the PATH or JAVA_HOME to be set.
 
 ## License
 
