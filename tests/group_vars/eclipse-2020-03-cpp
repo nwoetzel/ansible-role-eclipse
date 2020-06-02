@@ -8,7 +8,7 @@ eclipse_plugins_install:
   - atlassian_connector
 #  - jenkins_connector
 #  - cmakeed
-  - cmake4eclipse
+#  - cmake4eclipse
   - cmake_helper
   - eclox
   - cppstyle
