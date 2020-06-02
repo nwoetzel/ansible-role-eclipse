@@ -1,0 +1,2 @@
+[eclipse-2019-12-cpp]
+localhost ansible_connection=local
