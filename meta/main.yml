@@ -23,7 +23,7 @@ galaxy_info:
 dependencies:
   - name: geerlingguy.java
     become: yes
-    version: 1.9.1
+    version: 1.10.0
   - name: GROG.package
     version: v1.2.4
     become: yes
