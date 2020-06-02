@@ -1,12 +1,12 @@
 ---
-eclipse_distro: photon
+eclipse_distro: 2019-12
 eclipse_package: cpp
 eclipse_plugins_install:
   - egit
   - cdtunittests
   - atlassian_connector
-#  - jenkins_connector
-#  - cmakeed
+  - jenkins_connector
+  - cmakeed
   - cmake4eclipse
   - cmake_helper
   - eclox
