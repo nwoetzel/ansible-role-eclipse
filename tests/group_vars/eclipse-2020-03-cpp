@@ -1,5 +1,5 @@
 ---
-eclipse_distro: photon
+eclipse_distro: 2020-03
 eclipse_package: cpp
 eclipse_plugins_install:
   - egit
