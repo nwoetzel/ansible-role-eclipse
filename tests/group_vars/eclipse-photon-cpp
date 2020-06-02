@@ -5,7 +5,7 @@ eclipse_plugins_install:
   - egit
   - cdtunittests
   - atlassian_connector
-  - jenkins_connector
+#  - jenkins_connector
   - cmakeed
   - cmake4eclipse
   - cmake_helper
