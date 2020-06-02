@@ -15,6 +15,7 @@
   local_action: get_url \
     url="{{ eclipse_download_url }}" \
     dest="{{ eclipse_download_folder ~ '/' ~ eclipse_file_tar }}" \
+    timeout=30 \
     force=no
   run_once: true
   tags: eclipse_master_download
