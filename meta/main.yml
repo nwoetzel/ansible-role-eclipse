@@ -25,13 +25,16 @@ dependencies:
     become: yes
     version: 1.10.0
   - name: GROG.package
-    version: v1.2.4
+    version: v1.3.0
     become: yes
     package_list:
       - name: libwebkitgtk-3.0-0
         yum_ignore: yes
+        dnf_ignore: yes
       - name: libcanberra-gtk-module # for sound?
         yum_ignore: yes
+        dnf_ignore: yes
       - name: libcanberra-gtk3-module
         yum_ignore: yes
+        dnf_ignore: yes
       - "{{ package_list_eclipse }}"
