@@ -1,7 +1,6 @@
 ---
 eclipse_distro: 2020-06
 eclipse_package: cpp
-eclipse_file_tar: eclipse-cpp-2020-06-R-incubation-linux-gtk-x86_64.tar.gz
 eclipse_plugins_install:
   - egit
   - cdtunittests
