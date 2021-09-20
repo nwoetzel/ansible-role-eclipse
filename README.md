@@ -1,7 +1,7 @@
 Ansible role eclipse
 ====================
 
-[![Build Status](https://travis-ci.com/nwoetzel/ansible-role-eclipse.svg?branch=master)](https://travis-ci.org/nwoetzel/ansible-role-eclipse)
+[![Build Status](https://travis-ci.com/nwoetzel/ansible-role-eclipse.svg?branch=master)](https://travis-ci.com/nwoetzel/ansible-role-eclipse)
 [![Branch](https://img.shields.io/github/tag/nwoetzel/ansible-role-eclipse.svg)](https://galaxy.ansible.com/nwoetzel/eclipse)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-nwoetzel.eclipse-660198.svg)](https://galaxy.ansible.com/nwoetzel/eclipse)
 
