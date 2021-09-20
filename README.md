@@ -1,7 +1,7 @@
 Ansible role eclipse
 ====================
 
-[![Build Status](https://travis-ci.org/nwoetzel/ansible-role-eclipse.svg?branch=master)](https://travis-ci.org/nwoetzel/ansible-role-eclipse)
+[![Build Status](https://travis-ci.com/nwoetzel/ansible-role-eclipse.svg?branch=master)](https://travis-ci.org/nwoetzel/ansible-role-eclipse)
 [![Branch](https://img.shields.io/github/tag/nwoetzel/ansible-role-eclipse.svg)](https://galaxy.ansible.com/nwoetzel/eclipse)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-nwoetzel.eclipse-660198.svg)](https://galaxy.ansible.com/nwoetzel/eclipse)
 
@@ -15,6 +15,7 @@ This ansible roles installs a eclipse distribution and optional plugins.
 
 - ansible >= 2.4
 - geerlingguy.java
+- GROG.package
 
 ## Role Variables
 
@@ -57,7 +58,8 @@ Adaption for either limitation can be easily implemented.
 
 ## Dependencies
 
-This role depends on [geerlingguy/java](https://github.com/geerlingguy/ansible-role-java) to install a jdk and to set the '-vm' argument in the eclipse.ini. This dependency can be removed from meta/main.yml - and the role will work but will require a java to be in the PATH or JAVA_HOME to be set.
+This role depends on [geerlingguy.java](https://github.com/geerlingguy/ansible-role-java) to install a jdk and to set the '-vm' argument in the eclipse.ini. This dependency can be removed from meta/main.yml - and the role will work but will require a java to be in the PATH or JAVA_HOME to be set.
+This role also depends on [GROG.package](https://github.com/GROG/ansible-role-package) to install some minor dependencies.
 
 ## License
 
