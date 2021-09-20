@@ -49,6 +49,14 @@ eclipse_defaults:
       version: 4.16
       latest_service_release: R
       packages: [java, jee, cpp, committers, php, dsl, javascript, rcp, modeling, parallel, rust, testing, scout]
+    '2021-06':
+      version: 4.20
+      latest_service_release: R
+      packages: [java, cpp]
+    '2021-09':
+      version: 4.21
+      latest_service_release: R
+      packages: [java, cpp]
 
   plugins:
     aptana_studio:

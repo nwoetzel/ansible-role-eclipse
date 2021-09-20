@@ -1,0 +1,2 @@
+[eclipse-2021-09-java]
+localhost ansible_connection=local

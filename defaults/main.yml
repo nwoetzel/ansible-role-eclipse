@@ -1,5 +1,5 @@
 ---
-eclipse_distro: luna
+eclipse_distro: '2021-06'
 eclipse_package: java # any of jee, java, cpp, dsl, php, rcp, parallel, testing, automative, scout etc.
 
 # the name of all plugins that should be installed
