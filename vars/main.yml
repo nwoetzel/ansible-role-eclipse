@@ -300,7 +300,7 @@ eclipse_defaults:
       creates_feature: org.eclipse.papyrus.uml
     jenkinseditor:
       repositories:
-        - "https://dl.bintray.com/de-jcup/jenkinseditor"
+        - "https://de-jcup.github.io/update-site-eclipse-jenkins-editor/update-site/"
       install_units:
         - de.jcup.jenkinseditor.feature.feature.group
       creates_feature: de.jcup.jenkinseditor.feature
