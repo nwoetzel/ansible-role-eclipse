@@ -6,10 +6,10 @@ python: "2.7"
 cache: pip
 
 env:
-  - DISTRO=2021-06-java
-  - DISTRO=2021-06-cpp
   - DISTRO=2021-09-java
   - DISTRO=2021-09-cpp
+  - DISTRO=2022-09-java
+  - DISTRO=2022-09-cpp
 
 addons:
   apt:

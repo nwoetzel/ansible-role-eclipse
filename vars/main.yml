@@ -57,6 +57,10 @@ eclipse_defaults:
       version: 4.21
       latest_service_release: R
       packages: [java, cpp]
+    '2022-09':
+      version: 4.25
+      latest_service_release: R
+      packages: [java, cpp]
 
   plugins:
     aptana_studio:
